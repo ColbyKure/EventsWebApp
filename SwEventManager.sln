@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwEventManager", "SwEventManager\SwEventManager.csproj", "{DC70A2DF-47F1-4BEA-9611-8BC2B7CBF48E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC70A2DF-47F1-4BEA-9611-8BC2B7CBF48E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC70A2DF-47F1-4BEA-9611-8BC2B7CBF48E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC70A2DF-47F1-4BEA-9611-8BC2B7CBF48E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC70A2DF-47F1-4BEA-9611-8BC2B7CBF48E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46F25B5C-120A-4FC3-BBE2-55DEE42EA02D}
+	EndGlobalSection
+EndGlobal
