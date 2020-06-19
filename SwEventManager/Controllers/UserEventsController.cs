@@ -10,17 +10,17 @@ using SwEventManager.Models;
 
 namespace SwEventManager.Controllers
 {
-    public class EventsController : Controller
+    public class UserEventsController : Controller
     {
         private SummitWorksEventManagerEntities db = new SummitWorksEventManagerEntities();
 
-        // GET: Events
+        // GET: UserEvents
         public ActionResult Index()
         {
             return View(db.Events.ToList());
         }
 
-        // GET: Events/Details/5
+        // GET: UserEvents/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,13 +35,13 @@ namespace SwEventManager.Controllers
             return View(@event);
         }
 
-        // GET: Events/Create
+        // GET: UserEvents/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Events/Create
+        // POST: UserEvents/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -58,7 +58,7 @@ namespace SwEventManager.Controllers
             return View(@event);
         }
 
-        // GET: Events/Edit/5
+        // GET: UserEvents/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,7 +73,7 @@ namespace SwEventManager.Controllers
             return View(@event);
         }
 
-        // POST: Events/Edit/5
+        // POST: UserEvents/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -89,7 +89,7 @@ namespace SwEventManager.Controllers
             return View(@event);
         }
 
-        // GET: Events/Delete/5
+        // GET: UserEvents/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace SwEventManager.Controllers
             return View(@event);
         }
 
-        // POST: Events/Delete/5
+        // POST: UserEvents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

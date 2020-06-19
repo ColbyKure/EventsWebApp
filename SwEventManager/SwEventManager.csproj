@@ -128,8 +128,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\AdminEventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserEventsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -206,11 +207,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Events\Create.cshtml" />
-    <Content Include="Views\Events\Delete.cshtml" />
-    <Content Include="Views\Events\Details.cshtml" />
-    <Content Include="Views\Events\Edit.cshtml" />
-    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\AdminEvents\Create.cshtml" />
+    <Content Include="Views\AdminEvents\Delete.cshtml" />
+    <Content Include="Views\AdminEvents\Details.cshtml" />
+    <Content Include="Views\AdminEvents\Edit.cshtml" />
+    <Content Include="Views\AdminEvents\Index.cshtml" />
+    <Content Include="Views\UserEvents\Create.cshtml" />
+    <Content Include="Views\UserEvents\Delete.cshtml" />
+    <Content Include="Views\UserEvents\Details.cshtml" />
+    <Content Include="Views\UserEvents\Edit.cshtml" />
+    <Content Include="Views\UserEvents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
