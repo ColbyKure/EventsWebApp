@@ -18,7 +18,7 @@
         <th>End Date</th>
         <th>Start Time</th>
         <th>End Time</th>
-        <th>Actions</th>
+        <th>Edit</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -30,8 +30,7 @@
     <td>@item.EndDate.ToShortDateString()</td>
     <td>@item.StartTime.ToString()</td>
     <td>@item.EndTime.ToString()</td>
-    <td>@Html.ActionLink("Edit", "Edit", new { id=item.EventID })</td>
-    <td>@Html.ActionLink("Delete", "Delete", new { id=item.EventID })</td>
+    <td>@Html.ActionLink("Edit Entry", "Edit", new { id=item.EventID })</td>
 </tr>
 }
 
