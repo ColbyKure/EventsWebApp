@@ -93,8 +93,12 @@
     <div class="form-group">
         <label class="control-label col-md-2" for="EventImage">Event Image</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.EventImage, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.EventImage, "", new { @class = "text-danger" })
+            @using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                    new { enctype = "multipart/form-data" }))
+            {
+                <label for="file">Upload Image:</label>
+                <input type="file" name="file" id="file" style="width: 100%;" />
+            }
         </div>
     </div>
 
