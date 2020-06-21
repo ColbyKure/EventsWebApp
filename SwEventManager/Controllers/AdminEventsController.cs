@@ -26,8 +26,7 @@ namespace SwEventManager.Controllers
             if (file != null)
             {
                 string pic = System.IO.Path.GetFileName(file.FileName);
-                string path = System.IO.Path.Combine(
-                                       Server.MapPath("~/images/profile"), pic);
+                string path = System.IO.Path.Combine(Server.MapPath("~/images/profile"), pic);
                 // file is uploaded
                 file.SaveAs(path);
 
@@ -42,7 +41,8 @@ namespace SwEventManager.Controllers
 
             }
             // after successfully uploading redirect the user
-            return RedirectToAction("actionname", "controller name");
+            return View();
+            //return RedirectToAction("actionname", "controller name");
         }
 
         // GET: Events/Details/5
