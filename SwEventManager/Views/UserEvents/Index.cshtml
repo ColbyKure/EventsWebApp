@@ -25,24 +25,19 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventName)
-        </td>
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.EventImage)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventID })
-        </td>
-    </tr>
+<div>
+    @Html.DisplayFor(modelItem => item.EventImage)
+    
+</div>
+<div>
+    @Html.DisplayFor(modelItem => item.Location):@Html.DisplayFor(modelItem => item.EventName)
+</div>
+    
+<div>
+    
+</div>    
+   
+
 }
 
 </table>
