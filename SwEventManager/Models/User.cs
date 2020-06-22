@@ -12,29 +12,20 @@ namespace SwEventManager.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Event
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Event()
+        public User()
         {
             this.Orders = new HashSet<Order>();
         }
     
-        public int EventID { get; set; }
-        public string EventName { get; set; }
-        public string EventDescription { get; set; }
-        public string EventCategory { get; set; }
-        public System.DateTime StartDate { get; set; }
-        public System.DateTime EndDate { get; set; }
-        public System.TimeSpan StartTime { get; set; }
-        public System.TimeSpan EndTime { get; set; }
-        public string Location { get; set; }
-        public bool OpenForRegistration { get; set; }
-        public byte[] EventImage { get; set; }
-        public double AdultPrice { get; set; }
-        public double ChildPrice { get; set; }
-        public string CompanyName { get; set; }
-        public string imagePath { get; set; }
+        public int UserId { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public bool IsAdmin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }

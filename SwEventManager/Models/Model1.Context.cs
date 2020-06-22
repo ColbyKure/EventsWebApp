@@ -26,5 +26,7 @@ namespace SwEventManager.Models
         }
     
         public virtual DbSet<Event> Events { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
