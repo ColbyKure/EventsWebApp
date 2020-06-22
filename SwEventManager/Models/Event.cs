@@ -30,7 +30,6 @@ namespace SwEventManager.Models
         public Nullable<System.TimeSpan> EndTime { get; set; }
         public string Location { get; set; }
         public bool OpenForRegistration { get; set; }
-        public byte[] EventImage { get; set; }
         public double AdultPrice { get; set; }
         public double ChildPrice { get; set; }
         public string CompanyName { get; set; }
