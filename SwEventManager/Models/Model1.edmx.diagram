@@ -7,7 +7,7 @@
       <Diagram DiagramId="eaa9eb6a76ac4966a1081e51f0ec3234" Name="Diagram1">
         <EntityTypeShape EntityType="SummitWorksEventManagerModel.Event" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="SummitWorksEventManagerModel.Order" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SummitWorksEventManagerModel.User" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SummitWorksEventManagerModel.User" Width="1.5" PointX="6.5" PointY="1.625" IsExpanded="true" />
         <AssociationConnector Association="SummitWorksEventManagerModel.EventFK" ManuallyRouted="false" />
         <AssociationConnector Association="SummitWorksEventManagerModel.UserFK" ManuallyRouted="false" />
       </Diagram>

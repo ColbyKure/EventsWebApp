@@ -21,30 +21,6 @@ namespace SwEventManager.Controllers
             return View(db.Events.ToList());
         }
 
-        //public ActionResult FileUpload(HttpPostedFileBase file)
-        //{
-        //    if (file != null)
-        //    {
-        //        string pic = System.IO.Path.GetFileName(file.FileName);
-        //        string path = System.IO.Path.Combine(Server.MapPath("~/images/profile"), pic);
-        //        // file is uploaded
-        //        file.SaveAs(path);
-
-        //        // save the image path path to the database or you can send image 
-        //        // directly to database
-        //        // in-case if you want to store byte[] ie. for DB
-        //        using (MemoryStream ms = new MemoryStream())
-        //        {
-        //            file.InputStream.CopyTo(ms);
-        //            byte[] array = ms.GetBuffer();
-        //        }
-
-        //    }
-        //    // after successfully uploading redirect the user
-        //    //return View();
-        //    return RedirectToAction("Create", "AdminEvent");
-        //}
-
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
@@ -71,7 +47,7 @@ namespace SwEventManager.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventID,EventName,EventDescription,EventCategory,StartDate,EndDate,StartTime,EndTime,Location,OpenForRegistration,AdultPrice,ChildPrice,CompanyName")] Event @event, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "EventID,EventName,EventDescription,EventCategory,StartDate,EndDate,StartTime,EndTime,Location,OpenForRegistration,AdultPrice,ChildPrice,CompanyName,imagePath")] Event @event, HttpPostedFileBase file)
         {
             try 
             {
@@ -129,14 +105,34 @@ namespace SwEventManager.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventID,EventName,EventDescription,EventCategory,StartDate,EndDate,StartTime,EndTime,Location,OpenForRegistration,EventImage,AdultPrice,ChildPrice,CompanyName")] Event @event)
+        public ActionResult Edit([Bind(Include = "EventID,EventName,EventDescription,EventCategory,StartDate,EndDate,StartTime,EndTime,Location,OpenForRegistration,AdultPrice,ChildPrice,CompanyName,imagePath")] Event @event, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
                     db.Entry(@event).State = EntityState.Modified;
-                    db.SaveChanges();
+                    if (file != null)
+                    {
+                        string pic = System.IO.Path.GetFileName(file.FileName);
+                        string path = System.IO.Path.Combine(Server.MapPath("/images"), pic);
+                        // file is uploaded
+                        file.SaveAs(path);
+
+                        // save the image path path to the database or you can send image 
+                        // directly to database
+                        // in-case if you want to store byte[] ie. for DB
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            file.InputStream.CopyTo(ms);
+                            byte[] array = ms.GetBuffer();
+                            db.Events.Add(@event);
+                            @event.imagePath = path.ToString();
+                            db.SaveChanges();
+                        }
+
+                    }
+                    // after successfully uploading redirect the user
                     return RedirectToAction("Index");
                 }
                 catch

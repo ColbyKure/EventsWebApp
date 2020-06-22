@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SummitWorksEventManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SummitWorksEventManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Events">
           <Key>
             <PropertyRef Name="EventID" />
@@ -19,7 +19,6 @@
           <Property Name="EndTime" Type="time" Precision="7" />
           <Property Name="Location" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="OpenForRegistration" Type="bit" Nullable="false" />
-          <Property Name="EventImage" Type="image" />
           <Property Name="AdultPrice" Type="float" Nullable="false" />
           <Property Name="ChildPrice" Type="float" Nullable="false" />
           <Property Name="CompanyName" Type="varchar" MaxLength="50" Nullable="false" />
@@ -91,8 +90,7 @@
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SummitWorksEventManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -110,7 +108,6 @@
           <Property Name="EndTime" Type="Time" Precision="7" />
           <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="OpenForRegistration" Type="Boolean" Nullable="false" />
-          <Property Name="EventImage" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="AdultPrice" Type="Double" Nullable="false" />
           <Property Name="ChildPrice" Type="Double" Nullable="false" />
           <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -205,7 +202,6 @@
                 <ScalarProperty Name="EndTime" ColumnName="EndTime" />
                 <ScalarProperty Name="Location" ColumnName="Location" />
                 <ScalarProperty Name="OpenForRegistration" ColumnName="OpenForRegistration" />
-                <ScalarProperty Name="EventImage" ColumnName="EventImage" />
                 <ScalarProperty Name="AdultPrice" ColumnName="AdultPrice" />
                 <ScalarProperty Name="ChildPrice" ColumnName="ChildPrice" />
                 <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
