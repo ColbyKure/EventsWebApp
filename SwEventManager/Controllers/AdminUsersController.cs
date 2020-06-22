@@ -12,7 +12,7 @@ namespace SwEventManager.Controllers
 {
     public class AdminUsersController : Controller
     {
-        private SummitWorksEventManagerEntities1 db = new SummitWorksEventManagerEntities1();
+        private SummitWorksEventManagerEntities db = new SummitWorksEventManagerEntities();
 
         // GET: AdminUsers
         public ActionResult Index()

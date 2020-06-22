@@ -14,19 +14,29 @@ namespace SwEventManager.Models
     
     public partial class Event
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Event()
+        {
+            this.Orders = new HashSet<Order>();
+        }
+    
         public int EventID { get; set; }
         public string EventName { get; set; }
         public string EventDescription { get; set; }
         public string EventCategory { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime EndDate { get; set; }
-        public System.TimeSpan StartTime { get; set; }
-        public System.TimeSpan EndTime { get; set; }
+        public Nullable<System.TimeSpan> StartTime { get; set; }
+        public Nullable<System.TimeSpan> EndTime { get; set; }
         public string Location { get; set; }
         public bool OpenForRegistration { get; set; }
         public byte[] EventImage { get; set; }
         public double AdultPrice { get; set; }
         public double ChildPrice { get; set; }
         public string CompanyName { get; set; }
+        public string imagePath { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
