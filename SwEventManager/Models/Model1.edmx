@@ -15,8 +15,8 @@
           <Property Name="EventCategory" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="StartDate" Type="date" Nullable="false" />
           <Property Name="EndDate" Type="date" Nullable="false" />
-          <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
-          <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="StartTime" Type="time" Precision="7" />
+          <Property Name="EndTime" Type="time" Precision="7" />
           <Property Name="Location" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="OpenForRegistration" Type="bit" Nullable="false" />
           <Property Name="EventImage" Type="image" />
@@ -30,14 +30,14 @@
             <PropertyRef Name="OrderID" />
           </Key>
           <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserID" Type="int" />
-          <Property Name="EventID" Type="int" />
-          <Property Name="PhoneNum" Type="varchar" MaxLength="15" />
-          <Property Name="Location" Type="varchar" MaxLength="100" />
-          <Property Name="TotalAdult" Type="int" />
-          <Property Name="TotalChild" Type="int" />
-          <Property Name="totalPrice" Type="float" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="PhoneNum" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TotalAdult" Type="int" Nullable="false" />
+          <Property Name="TotalChild" Type="int" Nullable="false" />
           <Property Name="OrderDate" Type="datetime" />
+          <Property Name="totalPrice" Type="float" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -51,7 +51,7 @@
           <Property Name="IsAdmin" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="EventFK">
-          <End Role="Events" Type="Self.Events" Multiplicity="0..1">
+          <End Role="Events" Type="Self.Events" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
@@ -65,7 +65,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="UserFK">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1">
+          <End Role="Users" Type="Self.Users" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
@@ -106,8 +106,8 @@
           <Property Name="EventCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="EndTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="StartTime" Type="Time" Precision="7" />
+          <Property Name="EndTime" Type="Time" Precision="7" />
           <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="OpenForRegistration" Type="Boolean" Nullable="false" />
           <Property Name="EventImage" Type="Binary" MaxLength="Max" FixedLength="false" />
@@ -122,14 +122,14 @@
             <PropertyRef Name="OrderID" />
           </Key>
           <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserID" Type="Int32" />
-          <Property Name="EventID" Type="Int32" />
-          <Property Name="PhoneNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="TotalAdult" Type="Int32" />
-          <Property Name="TotalChild" Type="Int32" />
-          <Property Name="totalPrice" Type="Double" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <Property Name="PhoneNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TotalAdult" Type="Int32" Nullable="false" />
+          <Property Name="TotalChild" Type="Int32" Nullable="false" />
           <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="totalPrice" Type="Double" />
           <NavigationProperty Name="Event" Relationship="Self.EventFK" FromRole="Orders" ToRole="Events" />
           <NavigationProperty Name="User" Relationship="Self.UserFK" FromRole="Orders" ToRole="Users" />
         </EntityType>
@@ -146,7 +146,7 @@
           <NavigationProperty Name="Orders" Relationship="Self.UserFK" FromRole="Users" ToRole="Orders" />
         </EntityType>
         <Association Name="EventFK">
-          <End Role="Events" Type="Self.Event" Multiplicity="0..1">
+          <End Role="Events" Type="Self.Event" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Orders" Type="Self.Order" Multiplicity="*" />
@@ -160,7 +160,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="UserFK">
-          <End Role="Users" Type="Self.User" Multiplicity="0..1">
+          <End Role="Users" Type="Self.User" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Orders" Type="Self.Order" Multiplicity="*" />
@@ -223,8 +223,8 @@
                 <ScalarProperty Name="Location" ColumnName="Location" />
                 <ScalarProperty Name="TotalAdult" ColumnName="TotalAdult" />
                 <ScalarProperty Name="TotalChild" ColumnName="TotalChild" />
-                <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
                 <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

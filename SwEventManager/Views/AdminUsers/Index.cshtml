@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SwEventManager.Models.User>
+
+@{
+    ViewBag.Title = "User Manager";
+}
+
+<h2>User Manager</h2>
+
+<p>
+    @Html.ActionLink("New User", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>IsAdmin</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+    @foreach (var item in Model) 
+    {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Firstname)</td>
+        <td>@Html.DisplayFor(modelItem => item.Lastname)</td>
+        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+        <td>@Html.DisplayFor(modelItem => item.IsAdmin)</td>
+        <td>@Html.ActionLink("Edit", "Edit", new { id = item.UserId })</td>
+        <td>@Html.ActionLink("Delete", "Delete", new { id = item.UserId })</td>
+    </tr>
+    }
+</table>

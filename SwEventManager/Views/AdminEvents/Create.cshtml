@@ -1,18 +1,17 @@
 ﻿@model SwEventManager.Models.Event
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "New Event";
 }
 
-<h2>Create</h2>
+<h2>Create New Event</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "AdminEvents", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Event</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
@@ -37,12 +36,17 @@
                 @Html.EditorFor(model => model.EventCategory, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.EventCategory, "", new { @class = "text-danger" })
             </div>
+            @*<div class="col-md-10">
+            @Html.DropDownListFor(m => m.EventCategory,
+                    new SelectList("Seminar", "Presentation", "Conference"),
+                    "Select Catagory")
+            </div>*@
         </div>
 
         <div class="form-group">
             <label class="control-label col-md-2" for="StartDate">Start Date</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
                 @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,7 +54,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="EndDate">End Date</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
                 @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -58,7 +62,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="StartTime">Start Time</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control", @type = "time" } })
                 @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -66,7 +70,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="EndTime">End Time</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-control", @type = "time" } })
                 @Html.ValidationMessageFor(model => model.EndTime, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -92,12 +96,8 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="EventImage">Event Image</label>
             <div class="col-md-10">
-                @using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
-                            new { enctype = "multipart/form-data" }))
-                {
                     <label for="file">Upload Image:</label>
                     <input type="file" name="file" id="file" style="width: 100%;" />
-                }
             </div>
         </div>
 

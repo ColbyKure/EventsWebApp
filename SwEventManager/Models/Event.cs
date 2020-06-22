@@ -26,8 +26,8 @@ namespace SwEventManager.Models
         public string EventCategory { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime EndDate { get; set; }
-        public System.TimeSpan StartTime { get; set; }
-        public System.TimeSpan EndTime { get; set; }
+        public Nullable<System.TimeSpan> StartTime { get; set; }
+        public Nullable<System.TimeSpan> EndTime { get; set; }
         public string Location { get; set; }
         public bool OpenForRegistration { get; set; }
         public byte[] EventImage { get; set; }
