@@ -50,9 +50,16 @@ namespace SwEventManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    Console.Write("Bad Input");
+                }
             }
 
             return View(user);
