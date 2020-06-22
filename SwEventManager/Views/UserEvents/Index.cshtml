@@ -1,28 +1,29 @@
-﻿@model IEnumerable<SwEventManager.Models.Model1.Events>
+﻿@model IEnumerable<SwEventManager.Models.Event>
 
-@{
-    ViewBag.Title = "Index";
-}
+    @{
+        ViewBag.Title = "Index";
+    }
 
-<h2>Events</h2>
+    <h2>Events</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
 
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
 
-    //display image here 
-    <br />
-    <img src="item.imagePath" alt="photo" />
-    <br />
-<Label>
-    @Html.DisplayFor(modelItem => item.Location):@Html.DisplayFor(modelItem => item.EventName)
-</Label>
-        
-   
+        //display image here
+        <br />
+        <img src="item.imagePath" alt="photo" />
+        <br />
+        <Label>
+            @Html.DisplayFor(modelItem => item.Location): @Html.DisplayFor(modelItem => item.EventName)
+        </Label>
 
-}
+
+
+    }
 
 
