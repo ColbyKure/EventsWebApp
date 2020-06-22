@@ -73,11 +73,18 @@ namespace SwEventManager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EventID,EventName,EventDescription,EventCategory,StartDate,EndDate,StartTime,EndTime,Location,OpenForRegistration,EventImage,AdultPrice,ChildPrice,CompanyName")] Event @event)
         {
-            if (ModelState.IsValid)
+            try 
             {
-                db.Events.Add(@event);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Events.Add(@event);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch
+            {
+                Console.Write("Bad Input");
             }
 
             return View(@event);
@@ -107,9 +114,16 @@ namespace SwEventManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(@event).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Entry(@event).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    Console.WriteLine("Bad Input");
+                }
             }
             return View(@event);
         }
