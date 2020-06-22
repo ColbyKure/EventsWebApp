@@ -4,40 +4,25 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Events</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.EventName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-       
-        <th>
-            @Html.DisplayNameFor(model => model.EventImage)
-        </th>
-     
-    </tr>
+
 
 @foreach (var item in Model) {
-<div>
-    @Html.DisplayFor(modelItem => item.EventImage)
-    
-</div>
-<div>
+
+    //display image here 
+    <br />
+    <img src="item.imagePath" alt="photo" />
+    <br />
+<Label>
     @Html.DisplayFor(modelItem => item.Location):@Html.DisplayFor(modelItem => item.EventName)
-</div>
-    
-<div>
-    
-</div>    
+</Label>
+        
    
 
 }
 
-</table>
+
