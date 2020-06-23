@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using SwEventManager.Models;
 
+
 namespace SwEventManager.Controllers
 {
     public class UserOrdersController : Controller
@@ -37,7 +38,7 @@ namespace SwEventManager.Controllers
         }
 
         // GET: UserOrders/Create
-        public ActionResult Create()
+        public ActionResult Create(int?id)
         {
             ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName");
             ViewBag.UserID = new SelectList(db.Users, "UserId", "Firstname");
@@ -55,7 +56,8 @@ namespace SwEventManager.Controllers
             {
                 db.Orders.Add(order);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.UserID = new SelectList(db.Users, "UserId", "UserId");
+                return RedirectToAction("Index","UserOrders","ViewBag.UserID");
             }
 
             ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName", order.EventID);
