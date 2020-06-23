@@ -111,6 +111,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Register", "Create", new { id = Model.EventID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @{int id = Model.EventID; }  
+    @Html.ActionLink("Register", "Create", id) |
+    @Html.ActionLink("Back to List", "Index", id)
 </p>

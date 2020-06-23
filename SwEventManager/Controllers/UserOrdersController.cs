@@ -15,10 +15,10 @@ namespace SwEventManager.Controllers
         private SummitWorksEventManagerEntities db = new SummitWorksEventManagerEntities();
 
         // GET: UserOrders
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
             var orders = db.Orders.Include(o => o.Event).Include(o => o.User);
-            return View(orders.ToList());
+            return RedirectToAction("Details","UserEvents",id);
         }
 
         // GET: UserOrders/Details/5
