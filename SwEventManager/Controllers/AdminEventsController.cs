@@ -109,7 +109,6 @@ namespace SwEventManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                var test = @event.imagePath;
                 try
                 {
                     db.Entry(@event).State = EntityState.Modified;

@@ -48,7 +48,7 @@
     <div class="form-group">
         <label class="control-label col-md-2" for="StartDate">Start Date</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control"@*, @type = "date"*@ } })
             @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -56,7 +56,7 @@
     <div class="form-group">
         <label class="control-label col-md-2" for="EndDate">End Date</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control"@*, @type = "date"*@ } })
             @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -64,7 +64,7 @@
     <div class="form-group">
         <label class="control-label col-md-2" for="StartTime">Start Time</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control", @type = "time" } })
             @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -72,7 +72,7 @@
     <div class="form-group">
         <label class="control-label col-md-2" for="EndTime">End Time</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-control", @type = "time" } })
             @Html.ValidationMessageFor(model => model.EndTime, "", new { @class = "text-danger" })
         </div>
     </div>
