@@ -118,6 +118,7 @@ namespace SwEventManager.Controllers
                 return HttpNotFound();
             }
             return View(@event);
+            #endregion
         }
 
         // POST: Events/Edit/5
@@ -166,6 +167,7 @@ namespace SwEventManager.Controllers
                 }
             }
             return View(@event);
+            #endregion
         }
 
         // GET: Events/Delete/5
@@ -203,4 +205,6 @@ namespace SwEventManager.Controllers
             base.Dispose(disposing);
         }
     }
+
 }
+
