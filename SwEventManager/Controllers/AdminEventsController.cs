@@ -108,6 +108,7 @@ namespace SwEventManager.Controllers
                 new SelectListItem { Text = "Seminar", Value = "Seminar" },
                 new SelectListItem { Text = "Presentation", Value = "Presentation" },
             };
+            #endregion
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -134,6 +135,7 @@ namespace SwEventManager.Controllers
                 new SelectListItem { Text = "Seminar", Value = "Seminar" },
                 new SelectListItem { Text = "Presentation", Value = "Presentation" },
             };
+            #endregion
             if (ModelState.IsValid)
             {
                 try
