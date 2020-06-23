@@ -139,6 +139,7 @@
     <Compile Include="Controllers\AdminUsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserEventsController.cs" />
+    <Compile Include="Controllers\UserOrdersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -236,6 +237,11 @@
     <Content Include="Views\AdminUsers\Edit.cshtml" />
     <Content Include="Views\AdminUsers\Index.cshtml" />
     <Content Include="web2.config" />
+    <Content Include="Views\UserOrders\Create.cshtml" />
+    <Content Include="Views\UserOrders\Delete.cshtml" />
+    <Content Include="Views\UserOrders\Details.cshtml" />
+    <Content Include="Views\UserOrders\Edit.cshtml" />
+    <Content Include="Views\UserOrders\Index.cshtml" />
     <None Include="web2.Debug.config">
       <DependentUpon>web2.config</DependentUpon>
     </None>
