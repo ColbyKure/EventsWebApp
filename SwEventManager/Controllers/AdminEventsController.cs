@@ -39,6 +39,13 @@ namespace SwEventManager.Controllers
         // GET: Events/Create
         public ActionResult Create()
         {
+            #region ViewBag
+            ViewBag.MyCatagories = new List<SelectListItem>() {
+                new SelectListItem { Text = "Conference", Value = "Conference" },
+                new SelectListItem { Text = "Seminar", Value = "Seminar" },
+                new SelectListItem { Text = "Presentation", Value = "Presentation" },
+            };
+            #endregion
             return View();
         }
 
@@ -49,7 +56,14 @@ namespace SwEventManager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EventID,EventName,EventDescription,EventCategory,StartDate,EndDate,StartTime,EndTime,Location,OpenForRegistration,AdultPrice,ChildPrice,CompanyName")] Event @event, HttpPostedFileBase file)
         {
-            try 
+            #region ViewBag
+            ViewBag.MyCatagories = new List<SelectListItem>() {
+                new SelectListItem { Text = "Conference", Value = "Conference" },
+                new SelectListItem { Text = "Seminar", Value = "Seminar" },
+                new SelectListItem { Text = "Presentation", Value = "Presentation" },
+            };
+            #endregion
+            try
             {
                 if (ModelState.IsValid)
                 {
@@ -88,6 +102,12 @@ namespace SwEventManager.Controllers
         // GET: Events/Edit/5
         public ActionResult Edit(int? id)
         {
+            #region ViewBag
+            ViewBag.MyCatagories = new List<SelectListItem>() {
+                new SelectListItem { Text = "Conference", Value = "Conference" },
+                new SelectListItem { Text = "Seminar", Value = "Seminar" },
+                new SelectListItem { Text = "Presentation", Value = "Presentation" },
+            };
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -107,6 +127,12 @@ namespace SwEventManager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "EventID,EventName,EventDescription,EventCategory,StartDate,EndDate,StartTime,EndTime,Location,OpenForRegistration,imagePath,AdultPrice,ChildPrice,CompanyName")] Event @event, HttpPostedFileBase file)
         {
+            #region ViewBag
+            ViewBag.MyCatagories = new List<SelectListItem>() {
+                new SelectListItem { Text = "Conference", Value = "Conference" },
+                new SelectListItem { Text = "Seminar", Value = "Seminar" },
+                new SelectListItem { Text = "Presentation", Value = "Presentation" },
+            };
             if (ModelState.IsValid)
             {
                 try
