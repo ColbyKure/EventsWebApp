@@ -17,7 +17,7 @@ namespace SwEventManager.Controllers
         // GET: UserEvents
         public ActionResult Index()
         {
-            return View(db.Events.ToList());
+            return View(db.Events);
         }
 
         // GET: UserEvents/Details/5
