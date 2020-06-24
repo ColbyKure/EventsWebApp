@@ -7,9 +7,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SwEventManager.Models;
+using SwEventManager.Utilities;
 
 namespace SwEventManager.Controllers
 {
+
+    [SessionCheck]
     public class UserEventsController : Controller
     {
         private SummitWorksEventManagerEntities db = new SummitWorksEventManagerEntities();

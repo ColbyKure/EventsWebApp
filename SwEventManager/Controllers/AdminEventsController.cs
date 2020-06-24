@@ -8,9 +8,12 @@ using System.Web;
 using System.Web.Mvc;
 using SwEventManager.Models;
 using System.IO;
+using SwEventManager.Utilities;
 
 namespace SwEventManager.Controllers
 {
+    [SessionCheck]
+    [AdminCheck]
     public class AdminEventsController : Controller
     {
         private SummitWorksEventManagerEntities db = new SummitWorksEventManagerEntities();
