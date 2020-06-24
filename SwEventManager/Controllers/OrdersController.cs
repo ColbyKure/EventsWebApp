@@ -7,113 +7,119 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SwEventManager.Models;
-using SwEventManager.Utilities;
 
 namespace SwEventManager.Controllers
 {
-
-    [SessionCheck]
-    public class UserEventsController : Controller
+    public class OrdersController : Controller
     {
         private SummitWorksEventManagerEntities db = new SummitWorksEventManagerEntities();
 
-        // GET: UserEvents
+        // GET: Orders
         public ActionResult Index()
         {
-            return View(db.Events.ToList());
+            var orders = db.Orders.Include(o => o.Event).Include(o => o.User);
+            return View(orders.ToList());
         }
 
-        // GET: UserEvents/Details/5
+        // GET: Orders/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event @event = db.Events.Find(id);
-            if (@event == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(@event);
+            return View(order);
         }
 
-        // GET: UserEvents/Create
-        public ActionResult Create(int? id)
+        // GET: Orders/Create
+        public ActionResult Create()
         {
-            return RedirectToAction("Create","Orders",id);
+            ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName");
+            ViewBag.UserID = new SelectList(db.Users, "UserId", "Firstname");
+            return View();
         }
 
-        // POST: UserEvents/Create
+        // POST: Orders/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventID,EventName,EventDescription,EventCategory,StartDate,EndDate,StartTime,EndTime,Location,OpenForRegistration,EventImage,AdultPrice,ChildPrice,CompanyName")] Event @event)
+        public ActionResult Create([Bind(Include = "OrderID,UserID,EventID,PhoneNum,Location,TotalAdult,TotalChild,OrderDate,totalPrice")] Order order)
         {
             if (ModelState.IsValid)
             {
-                db.Events.Add(@event);
+                db.Orders.Add(order);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(@event);
+            ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName", order.EventID);
+            ViewBag.UserID = new SelectList(db.Users, "UserId", "Firstname", order.UserID);
+            return View(order);
         }
 
-        // GET: UserEvents/Edit/5
+        // GET: Orders/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event @event = db.Events.Find(id);
-            if (@event == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(@event);
+            ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName", order.EventID);
+            ViewBag.UserID = new SelectList(db.Users, "UserId", "Firstname", order.UserID);
+            return View(order);
         }
 
-        // POST: UserEvents/Edit/5
+        // POST: Orders/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventID,EventName,EventDescription,EventCategory,StartDate,EndDate,StartTime,EndTime,Location,OpenForRegistration,EventImage,AdultPrice,ChildPrice,CompanyName")] Event @event)
+        public ActionResult Edit([Bind(Include = "OrderID,UserID,EventID,PhoneNum,Location,TotalAdult,TotalChild,OrderDate,totalPrice")] Order order)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(@event).State = EntityState.Modified;
+                db.Entry(order).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(@event);
+            ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName", order.EventID);
+            ViewBag.UserID = new SelectList(db.Users, "UserId", "Firstname", order.UserID);
+            return View(order);
         }
 
-        // GET: UserEvents/Delete/5
+        // GET: Orders/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Event @event = db.Events.Find(id);
-            if (@event == null)
+            Order order = db.Orders.Find(id);
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(@event);
+            return View(order);
         }
 
-        // POST: UserEvents/Delete/5
+        // POST: Orders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Event @event = db.Events.Find(id);
-            db.Events.Remove(@event);
+            Order order = db.Orders.Find(id);
+            db.Orders.Remove(order);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
