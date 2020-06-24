@@ -21,6 +21,11 @@ namespace SwEventManager.Controllers
             var orders = db.Orders.Include(o => o.Event).Include(o => o.User);
             return RedirectToAction("Details","UserEvents",id);
         }
+        public ActionResult Index1(int? id)
+        {
+            var orders = db.Orders.Include(o => o.Event).Include(o => o.User);
+            return View(orders);
+        }
 
         // GET: UserOrders/Details/5
         public ActionResult Details(int? id)
@@ -38,7 +43,7 @@ namespace SwEventManager.Controllers
         }
 
         // GET: UserOrders/Create
-        public ActionResult Create(int?id)
+        public ActionResult Create()
         {
             ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName");
             ViewBag.UserID = new SelectList(db.Users, "UserId", "Firstname");
@@ -57,7 +62,7 @@ namespace SwEventManager.Controllers
                 db.Orders.Add(order);
                 db.SaveChanges();
                 ViewBag.UserID = new SelectList(db.Users, "UserId", "UserId");
-                return RedirectToAction("Index","UserOrders","ViewBag.UserID");
+                return RedirectToAction("Index1");
             }
 
             ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName", order.EventID);
@@ -93,7 +98,7 @@ namespace SwEventManager.Controllers
             {
                 db.Entry(order).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","UserEvents");
             }
             ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName", order.EventID);
             ViewBag.UserID = new SelectList(db.Users, "UserId", "Firstname", order.UserID);
