@@ -10,6 +10,7 @@
 namespace SwEventManager.Models
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
@@ -23,12 +24,20 @@ namespace SwEventManager.Models
         {
             this.Orders = new HashSet<Order>();
         }
+        [Required]
         public int UserId { get; set; }
+        [Required]
         public string Firstname { get; set; }
+        [Required]
         public string Lastname { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
         public string Password { get; internal set; }
+        [Required]
         public bool IsAdmin { get; internal set; }
-        public HashSet<Order> Orders { get; private set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage","CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
