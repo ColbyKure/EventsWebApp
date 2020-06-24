@@ -20,15 +20,15 @@ namespace SwEventManager.Models
         {
             this.Orders = new HashSet<Order>();
         }
-    
+
         public int UserId { get; set; }
-        
+        [Required]
         public string Firstname { get; set; }
-        
+        [Required]
         public string Lastname { get; set; }
-        
+        [Required]
         public string Email { get; set; }
-       
+        [Required]
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
     
