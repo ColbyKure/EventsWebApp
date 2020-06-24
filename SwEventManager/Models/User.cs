@@ -32,7 +32,7 @@ namespace SwEventManager.Models
         [Required]
         public string Email { get; set; }
         [Required]
-
+        [DataType(DataType.Password)]
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
     

@@ -52,15 +52,24 @@ namespace SwEventManager.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
+                var u = db.Users.Where(a => a.Email.Equals(user.Email)).FirstOrDefault();
+                if (u != null)
                 {
-                    db.Users.Add(user);
-                    db.SaveChanges();
-                    return View("../Users/RegisterSuccess");                
+                    return View("../Users/RegisterFailed");
                 }
-                catch
+                else
                 {
-                    Console.Write("Bad Input");
+
+                    try
+                    {
+                        db.Users.Add(user);
+                        db.SaveChanges();
+                        return View("../Users/RegisterSuccess");
+                    }
+                    catch
+                    {
+                        Console.Write("Bad Input");
+                    }
                 }
             }
 
