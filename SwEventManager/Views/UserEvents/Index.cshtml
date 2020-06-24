@@ -13,7 +13,7 @@
 
         //display image here
         <br />
-        <img src="\item.imagePath" alt="photo" />
+        <img src=ToString(item.imagePath) alt="photo" />
         <br />
         <a href="@Url.Action("Details","UserEvents",new { id = item.EventID })">
             <Label>
