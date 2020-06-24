@@ -15,13 +15,16 @@ namespace SwEventManager.Models
 
     public partial class User
     {
+
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
             this.Orders = new HashSet<Order>();
         }
-    
         public int UserId { get; set; }
+<<<<<<< HEAD
         
         public string Firstname { get; set; }
         
@@ -34,5 +37,13 @@ namespace SwEventManager.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
+=======
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public string Email { get; set; }
+        public string Password { get; internal set; }
+        public bool IsAdmin { get; internal set; }
+        public HashSet<Order> Orders { get; private set; }
+>>>>>>> 23d459e62fc4302114b0a776f81a0f1b88b7d061
     }
 }
