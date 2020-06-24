@@ -2,6 +2,13 @@
 
 @{
     ViewBag.Title = "Delete Event";
+    ViewBag.pageLabel1 = "Event Manager";
+    ViewBag.pageLabel2 = "User Manager";
+    ViewBag.Index = "Index";
+    ViewBag.AdminEvents = "AdminEvents";
+    ViewBag.AdminUsers = "AdminUsers";
+    ViewBag.UserEvents = "UserEvents";
+    ViewBag.UsView = "User View";
 }
 
 <h2>Delete Event</h2>
@@ -81,8 +88,14 @@
         <dd>
             @Html.DisplayFor(model => model.OpenForRegistration)
         </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.imagePath)
+        </dt>
 
-     
+        <dd>
+            @Html.DisplayFor(model => model.imagePath)
+        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.AdultPrice)

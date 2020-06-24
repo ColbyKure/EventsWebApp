@@ -39,9 +39,9 @@ namespace SwEventManager.Controllers
         }
 
         // GET: UserEvents/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            return View();
+            return RedirectToAction("Create","UserOrders",id);
         }
 
         // POST: UserEvents/Create

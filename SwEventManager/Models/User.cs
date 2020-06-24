@@ -22,7 +22,6 @@ namespace SwEventManager.Models
         }
     
         public int UserId { get; set; }
-
         
         public string Firstname { get; set; }
         

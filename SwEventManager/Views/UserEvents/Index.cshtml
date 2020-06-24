@@ -6,9 +6,6 @@
 
     <h2>Events</h2>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
 
 
     @foreach (var item in Model)
@@ -16,11 +13,15 @@
 
         //display image here
         <br />
-        <img src="item.imagePath" alt="photo" />
+        <img src=ToString(item.imagePath) alt="photo" />
         <br />
-        <Label>
-            @Html.DisplayFor(modelItem => item.Location): @Html.DisplayFor(modelItem => item.EventName)
-        </Label>
+        <a href="@Url.Action("Details","UserEvents",new { id = item.EventID })">
+            <Label>
+                @Html.DisplayFor(modelItem => item.Location): @Html.DisplayFor(modelItem => item.EventName)
+                
+            </Label>
+        </a>
+       
 
 
 

@@ -24,30 +24,6 @@ namespace SwEventManager.Controllers
             return View(db.Events.ToList());
         }
 
-        //public ActionResult FileUpload(HttpPostedFileBase file)
-        //{
-        //    if (file != null)
-        //    {
-        //        string pic = System.IO.Path.GetFileName(file.FileName);
-        //        string path = System.IO.Path.Combine(Server.MapPath("~/images/profile"), pic);
-        //        // file is uploaded
-        //        file.SaveAs(path);
-
-        //        // save the image path path to the database or you can send image 
-        //        // directly to database
-        //        // in-case if you want to store byte[] ie. for DB
-        //        using (MemoryStream ms = new MemoryStream())
-        //        {
-        //            file.InputStream.CopyTo(ms);
-        //            byte[] array = ms.GetBuffer();
-        //        }
-
-        //    }
-        //    // after successfully uploading redirect the user
-        //    //return View();
-        //    return RedirectToAction("Create", "AdminEvent");
-        //}
-
         // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
@@ -66,6 +42,13 @@ namespace SwEventManager.Controllers
         // GET: Events/Create
         public ActionResult Create()
         {
+            #region ViewBag
+            ViewBag.MyCatagories = new List<SelectListItem>() {
+                new SelectListItem { Text = "Conference", Value = "Conference" },
+                new SelectListItem { Text = "Seminar", Value = "Seminar" },
+                new SelectListItem { Text = "Presentation", Value = "Presentation" },
+            };
+            #endregion
             return View();
         }
 
@@ -76,7 +59,14 @@ namespace SwEventManager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EventID,EventName,EventDescription,EventCategory,StartDate,EndDate,StartTime,EndTime,Location,OpenForRegistration,AdultPrice,ChildPrice,CompanyName")] Event @event, HttpPostedFileBase file)
         {
-            try 
+            #region ViewBag
+            ViewBag.MyCatagories = new List<SelectListItem>() {
+                new SelectListItem { Text = "Conference", Value = "Conference" },
+                new SelectListItem { Text = "Seminar", Value = "Seminar" },
+                new SelectListItem { Text = "Presentation", Value = "Presentation" },
+            };
+            #endregion
+            try
             {
                 if (ModelState.IsValid)
                 {
@@ -115,6 +105,13 @@ namespace SwEventManager.Controllers
         // GET: Events/Edit/5
         public ActionResult Edit(int? id)
         {
+            #region ViewBag
+            ViewBag.MyCatagories = new List<SelectListItem>() {
+                new SelectListItem { Text = "Conference", Value = "Conference" },
+                new SelectListItem { Text = "Seminar", Value = "Seminar" },
+                new SelectListItem { Text = "Presentation", Value = "Presentation" },
+            };
+            #endregion
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -125,6 +122,7 @@ namespace SwEventManager.Controllers
                 return HttpNotFound();
             }
             return View(@event);
+           
         }
 
         // POST: Events/Edit/5
@@ -132,13 +130,39 @@ namespace SwEventManager.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventID,EventName,EventDescription,EventCategory,StartDate,EndDate,StartTime,EndTime,Location,OpenForRegistration,EventImage,AdultPrice,ChildPrice,CompanyName")] Event @event)
+        public ActionResult Edit([Bind(Include = "EventID,EventName,EventDescription,EventCategory,StartDate,EndDate,StartTime,EndTime,Location,OpenForRegistration,imagePath,AdultPrice,ChildPrice,CompanyName")] Event @event, HttpPostedFileBase file)
         {
+            #region ViewBag
+            ViewBag.MyCatagories = new List<SelectListItem>() {
+                new SelectListItem { Text = "Conference", Value = "Conference" },
+                new SelectListItem { Text = "Seminar", Value = "Seminar" },
+                new SelectListItem { Text = "Presentation", Value = "Presentation" },
+            };
+            #endregion
             if (ModelState.IsValid)
             {
                 try
                 {
                     db.Entry(@event).State = EntityState.Modified;
+                    if (file != null)
+                    {
+                        string pic = System.IO.Path.GetFileName(file.FileName);
+                        string path = System.IO.Path.Combine(Server.MapPath("/images"), pic);
+                        // file is uploaded
+                        file.SaveAs(path);
+
+                        // save the image path path to the database or you can send image 
+                        // directly to database
+                        // in-case if you want to store byte[] ie. for DB
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            file.InputStream.CopyTo(ms);
+                            byte[] array = ms.GetBuffer();
+                            @event.imagePath = path.ToString();
+                            db.SaveChanges();
+                        }
+
+                    }
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -148,6 +172,7 @@ namespace SwEventManager.Controllers
                 }
             }
             return View(@event);
+     
         }
 
         // GET: Events/Delete/5
@@ -185,4 +210,6 @@ namespace SwEventManager.Controllers
             base.Dispose(disposing);
         }
     }
+
 }
+
