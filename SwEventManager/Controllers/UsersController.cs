@@ -55,7 +55,7 @@ namespace SwEventManager.Controllers
                 {
                     db.Users.Add(user);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return View("../Users/RegisterSuccess");                
                 }
                 catch
                 {
@@ -85,7 +85,7 @@ namespace SwEventManager.Controllers
                 else
                 {
                     Console.WriteLine("Login failed");
-                    return RedirectToAction("../Home");
+                    return View("../Users/LoginFailed");
                 }
         }
 
