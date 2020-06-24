@@ -2,6 +2,13 @@
 
 @{
     ViewBag.Title = "Edit Event";
+    ViewBag.pageLabel1 = "Event Manager";
+    ViewBag.pageLabel2 = "User Manager";
+    ViewBag.Index = "Index";
+    ViewBag.AdminEvents = "AdminEvents";
+    ViewBag.AdminUsers = "AdminUsers";
+    ViewBag.UserEvents = "UserEvents";
+    ViewBag.UsView = "User View";
 }
 
 <h2>Edit Event</h2>
@@ -43,7 +50,7 @@
     <div class="form-group">
         <label class="control-label col-md-2" for="StartDate">Start Date</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control"@*, @type = "date"*@ } })
+            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -51,7 +58,7 @@
     <div class="form-group">
         <label class="control-label col-md-2" for="EndDate">End Date</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control"@*, @type = "date"*@ } })
+            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
         </div>
     </div>

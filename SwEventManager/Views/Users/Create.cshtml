@@ -1,30 +1,22 @@
 ﻿@model SwEventManager.Models.User
 
 @{
-    ViewBag.Title = "Edit User";
-    ViewBag.pageLabel1 = "Event Manager";
-    ViewBag.pageLabel2 = "User Manager";
-    ViewBag.Index = "Index";
-    ViewBag.AdminEvents = "AdminEvents";
-    ViewBag.AdminUsers = "AdminUsers";
-    ViewBag.UserEvents = "UserEvents";
-    ViewBag.UsView = "User View";
+    ViewBag.Title = "Create";
 }
 
-<h2>Edit User</h2>
+<h2>Create</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
+        <h4>User</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.UserId)
-
         <div class="form-group">
-            <label class="control-label col-md-2" for="Firstname">First Name</label>
+            @Html.LabelFor(model => model.Firstname, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
@@ -32,7 +24,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="Lastname">Last Name</label>
+            @Html.LabelFor(model => model.Lastname, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
@@ -40,7 +32,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="Email">Email</label>
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
@@ -48,7 +40,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="Password">Password</label>
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
@@ -56,7 +48,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="IsAdmin">Admin</label>
+            @Html.LabelFor(model => model.IsAdmin, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.IsAdmin)
@@ -67,16 +59,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div class="col-md-offset-2 col-md-10">
-    <div>
-        @Html.ActionLink("Cancel", "Index")
-    </div>
+<div>
+    @Html.ActionLink("Back to Login", "../Home")
 </div>
 
 @section Scripts {
