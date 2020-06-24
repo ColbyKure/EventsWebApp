@@ -2,6 +2,13 @@
 
 @{
     ViewBag.Title = "New Event";
+    ViewBag.pageLabel1 = "Event Manager";
+    ViewBag.pageLabel2 = "User Manager";
+    ViewBag.Index = "Index";
+    ViewBag.AdminEvents = "AdminEvents";
+    ViewBag.AdminUsers = "AdminUsers";
+    ViewBag.UserEvents = "UserEvents";
+    ViewBag.UsView = "User View";
 }
 
 <h2>Create New Event</h2>
@@ -33,14 +40,9 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="EventCatagory">Catagory</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EventCategory, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.EventCategory, (IEnumerable<SelectListItem>)ViewBag.MyCatagories, "Select Catagory")
                 @Html.ValidationMessageFor(model => model.EventCategory, "", new { @class = "text-danger" })
             </div>
-            @*<div class="col-md-10">
-            @Html.DropDownListFor(m => m.EventCategory,
-                    new SelectList("Seminar", "Presentation", "Conference"),
-                    "Select Catagory")
-            </div>*@
         </div>
 
         <div class="form-group">
