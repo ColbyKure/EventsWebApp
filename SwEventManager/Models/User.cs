@@ -15,12 +15,20 @@ namespace SwEventManager.Models
 
     public partial class User
     {
+
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
             this.Orders = new HashSet<Order>();
         }
-    
         public int UserId { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public string Email { get; set; }
+        public string Password { get; internal set; }
+        public bool IsAdmin { get; internal set; }
+        public HashSet<Order> Orders { get; private set; }
     }
 }

@@ -13,6 +13,7 @@ namespace SwEventManager.Controllers
    
     public class UsersController : Controller
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0044:Add readonly modifier", Justification = "<Pending>")]
         private SummitWorksEventManagerEntities db = new SummitWorksEventManagerEntities();
 
         // GET: Users
