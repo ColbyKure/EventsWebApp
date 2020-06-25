@@ -11,10 +11,10 @@
 @foreach (var item in Model)
 {
     //display image here
-    <br />
+    
     <div class="EventDisplay">
         <a>
-            <img src=("~"+"item.imagePath") alt="image" style="width:100px">
+            <img src="Url.Content(item.imagePath)" alt="image" style="width:100px">
             @*<img src="@Url.Content(item.imagePath)" alt="Image" />
             <img src="@Url.Content(item.imagePath)" alt="Image" />*@
         </a>
