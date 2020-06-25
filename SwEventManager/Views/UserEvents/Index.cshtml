@@ -12,18 +12,20 @@
 {
     //display image here
     <br />
-    <a>
-        <img src=@item.imagePath alt="image" style="width:100px">
-        @*<img src="@Url.Content(item.imagePath)" alt="Image" />
-        <img src="@Url.Content(item.imagePath)" alt="Image" />*@
-    </a>
-    <br />
-    <a href="@Url.Action("Details","UserEvents",new { id = item.EventID })">
-        
-        <Label>
-            Event: @Html.DisplayFor(modelItem => item.EventName) <br /> Location: @Html.DisplayFor(modelItem => item.Location)
-        </Label>
-    </a>
+    <div class="EventDisplay">
+        <a>
+            <img src=("~"+"item.imagePath") alt="image" style="width:100px">
+            @*<img src="@Url.Content(item.imagePath)" alt="Image" />
+            <img src="@Url.Content(item.imagePath)" alt="Image" />*@
+        </a>
+        <br />
+        <a href="@Url.Action("Details","UserEvents",new { id = item.EventID })">
+
+            <Label>
+                Event: @Html.DisplayFor(modelItem => item.EventName) <br /> Location: @Html.DisplayFor(modelItem => item.Location)
+            </Label>
+        </a>
+    </div>
 
 
 
