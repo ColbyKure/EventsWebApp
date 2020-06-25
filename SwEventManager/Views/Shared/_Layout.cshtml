@@ -12,8 +12,9 @@
 </head>
 @*<body style="background-color: #2F4F4F">*@
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    @*<div class="navbar navbar-inverse navbar-fixed-top">*@
+    <div class="left">
+        <div class="btn-group-vertical">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -50,13 +51,36 @@
     body {
         background-color: aqua;
         color: black;
+        margin: 0;
+        padding: 0;
+        font-size: 150%;
     }
-
     head {
         background-color: slategray;
         color: whitesmoke;
     }
     label {
         color: midnightblue
+    }
+    .left {
+        width: 10%;
+        float: left;
+    }
+    .nav {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .nav li {
+        margin: 1px 0;
+        border: 1px solid #999;
+    }
+
+    .nav li a {
+        display: block;
+        line-height: 3em;
+        width: 100%;
+        text-decoration: none;
     }
 </style>
