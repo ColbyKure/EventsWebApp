@@ -56,6 +56,7 @@ namespace SwEventManager.Controllers
                 if (u != null)
                 {
                     return View("../Users/RegisterFailed");
+
                 }
                 else
                 {

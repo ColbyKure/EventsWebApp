@@ -85,7 +85,7 @@ namespace SwEventManager.Controllers
                             file.InputStream.CopyTo(ms);
                             byte[] array = ms.GetBuffer();
                             db.Events.Add(@event);
-                            @event.imagePath = path.ToString();
+                            @event.imagePath = "/images/" + file.FileName;
                             db.SaveChanges();
                         }
 
@@ -111,6 +111,7 @@ namespace SwEventManager.Controllers
                 new SelectListItem { Text = "Seminar", Value = "Seminar" },
                 new SelectListItem { Text = "Presentation", Value = "Presentation" },
             };
+
             #endregion
             if (id == null)
             {
@@ -139,6 +140,7 @@ namespace SwEventManager.Controllers
                 new SelectListItem { Text = "Presentation", Value = "Presentation" },
             };
             #endregion
+            //var oldPath = ViewBag.oldPath;
             if (ModelState.IsValid)
             {
                 try
@@ -158,10 +160,14 @@ namespace SwEventManager.Controllers
                         {
                             file.InputStream.CopyTo(ms);
                             byte[] array = ms.GetBuffer();
-                            @event.imagePath = path.ToString();
+                            @event.imagePath = "/images/" + file.FileName;
                             db.SaveChanges();
                         }
 
+                    }
+                    else
+                    {
+                        @event.imagePath = oldPath;
                     }
                     db.SaveChanges();
                     return RedirectToAction("Index");
