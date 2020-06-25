@@ -14,9 +14,7 @@
     
     <div class="EventDisplay">
         <a>
-            <img src="Url.Content(item.imagePath)" alt="image" style="width:100px">
-            @*<img src="@Url.Content(item.imagePath)" alt="Image" />
-            <img src="@Url.Content(item.imagePath)" alt="Image" />*@
+            <img src=@item.imagePath alt="image" style="width:100px">
         </a>
         <br />
         <a href="@Url.Action("Details","UserEvents",new { id = item.EventID })">
