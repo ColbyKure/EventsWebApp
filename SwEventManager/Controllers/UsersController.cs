@@ -56,7 +56,7 @@ namespace SwEventManager.Controllers
                 {
                     db.Users.Add(user);
                     db.SaveChanges();
-                    return RedirectToAction("Login");
+                    return RedirectToAction("../Home/Login");
                 }
                 catch
                 {
