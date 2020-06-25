@@ -2,11 +2,11 @@
 @model SwEventManager.Models.User
 
 @{
-    ViewBag.Title = "RegisterSuucess";
+    ViewBag.Title = "RegisterSuccess";
 }
 
 
-<h2>Register Successfull. Please Log in</h2>
+<h2>Register Successful. Please Log in</h2>
 
 
 @using (Html.BeginForm("Login", "Users", FormMethod.Post, new { @class = "form-container" }))
@@ -14,7 +14,6 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>User</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 

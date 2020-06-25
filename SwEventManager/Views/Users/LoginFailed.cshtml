@@ -5,8 +5,7 @@
     ViewBag.Title = "LoginFailed";
 }
 
-
-<h2>Wrong username or password. Please try again</h2>
+<h2>Login</h2>
 
 
 @using (Html.BeginForm("Login", "Users", FormMethod.Post, new { @class = "form-container" }))
@@ -14,7 +13,6 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>User</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -32,6 +30,7 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                <p><b>Wrong username or password.</b> Please try again</p>
             </div>
         </div>
         <div class="form-group">
