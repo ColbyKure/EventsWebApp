@@ -21,7 +21,7 @@
     <a href="@Url.Action("Details","UserEvents",new { id = item.EventID })">
         
         <Label>
-            Location: @Html.DisplayFor(modelItem => item.Location) <br /> Event: @Html.DisplayFor(modelItem => item.EventName)
+            Event: @Html.DisplayFor(modelItem => item.EventName) <br /> Location: @Html.DisplayFor(modelItem => item.Location)
         </Label>
     </a>
 
