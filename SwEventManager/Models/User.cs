@@ -25,12 +25,8 @@ namespace SwEventManager.Models
             this.Orders = new HashSet<Order>();
         }
         public int UserId { get; set; }
-<<<<<<< HEAD
-<<<<<<< HEAD
-        
-=======
         [Required]
->>>>>>> efe6727e63268a20848e279b507833b39abc8fab
+
         public string Firstname { get; set; }
         [Required]
         public string Lastname { get; set; }
@@ -44,16 +40,5 @@ namespace SwEventManager.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
         public virtual ICollection<Order> Orders { get; set; }
-<<<<<<< HEAD
-=======
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public string Email { get; set; }
-        public string Password { get; internal set; }
-        public bool IsAdmin { get; internal set; }
-        public HashSet<Order> Orders { get; private set; }
->>>>>>> 23d459e62fc4302114b0a776f81a0f1b88b7d061
-=======
->>>>>>> efe6727e63268a20848e279b507833b39abc8fab
     }
 }
