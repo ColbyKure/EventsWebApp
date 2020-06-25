@@ -7,15 +7,15 @@
 <h2>Event Details</h2>
 
 <hr />
-<div class="DisplayEvent">
+<div>
 
 
 
-    <div>
+    <div class="DisplayEvent">
         <b>Event Name: </b>
         @Html.DisplayFor(model => model.EventName)
     </div>
-    <div>
+    <div class="DisplayEvent">
         <b>Event Description: </b>
 
         @Html.DisplayFor(model => model.EventDescription)
@@ -72,7 +72,7 @@
     </div>
 </div>
 <br />
-<p>
+<p class="links">
     @{int id = Model.EventID; }
     @if (Model.OpenForRegistration)
     {
