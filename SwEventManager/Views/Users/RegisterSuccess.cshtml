@@ -2,21 +2,21 @@
 @model SwEventManager.Models.User
 
 @{
-    ViewBag.Title = "Events App";
+    ViewBag.Title = "RegisterSuccess";
 }
 
 
-<h2>Login</h2>
+<h2>Register Successful. Please Log in</h2>
 
 
-@using (Html.BeginForm("Login","Users", FormMethod.Post, new {@class = "form-container"}))
+@using (Html.BeginForm("Login", "Users", FormMethod.Post, new { @class = "form-container" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-     
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -42,8 +42,8 @@
 }
 
 <div>
-    @*@Html.ActionLink("Register", "Index", "Users/Create")*@
-    @Html.ActionLink("Register", "../Users/Create")
+    @Html.ActionLink("Register", "Index", "Users/Create")
+
 </div>
 
 @section Scripts {

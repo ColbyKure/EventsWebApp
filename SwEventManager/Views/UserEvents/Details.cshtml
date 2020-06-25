@@ -1,81 +1,83 @@
 ﻿@model SwEventManager.Models.Event
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Event Details";
 }
 
-<h2>Details</h2>
+<h2>Event Details</h2>
 
-
-<h4>Event</h4>
 <hr />
 <div class="DisplayEvent">
 
 
 
-    <div class="DisplayEvent">
-        @Html.DisplayNameFor(model => model.EventName)
-
+    <div>
+        <b>Event Name: </b>
         @Html.DisplayFor(model => model.EventName)
     </div>
-    <div class="DisplayEvent">
-        @Html.DisplayNameFor(model => model.EventDescription)
+    <div>
+        <b>Event Description: </b>
 
         @Html.DisplayFor(model => model.EventDescription)
     </div>
     <div class="DisplayEvent">
-        @Html.DisplayNameFor(model => model.EventCategory)
+        <b>Event Category: </b>
 
         @Html.DisplayFor(model => model.EventCategory)
     </div>
     <div class="DisplayEvent">
-        @Html.DisplayNameFor(model => model.StartDate)
+        <b>Start Date: </b>
 
         @Html.DisplayFor(model => model.StartDate)
     </div>
     <div class="DisplayEvent">
-        @Html.DisplayNameFor(model => model.EndDate)
+        <b>End Date: </b>
 
         @Html.DisplayFor(model => model.EndDate)
     </div>
     <div class="DisplayEvent">
-        @Html.DisplayNameFor(model => model.StartTime)
+        <b>Start Time: </b>
 
         @Html.DisplayFor(model => model.StartTime)
     </div>
     <div class="DisplayEvent">
-        @Html.DisplayNameFor(model => model.EndTime)
+        <b>End Time: </b>
 
         @Html.DisplayFor(model => model.EndTime)
     </div>
     <div class="DisplayEvent">
-        @Html.DisplayNameFor(model => model.Location)
+        <b>Location: </b>
 
         @Html.DisplayFor(model => model.Location)
     </div>
     <div class="DisplayEvent">
-        @Html.DisplayNameFor(model => model.OpenForRegistration)
+        <b>Open For Registration: </b>
 
         @Html.DisplayFor(model => model.OpenForRegistration)
     </div>
     <div class="DisplayEvent">
-        @Html.DisplayNameFor(model => model.AdultPrice)
+        <b>Adult Price: </b>
 
         @Html.DisplayFor(model => model.AdultPrice)
     </div>
     <div class="DisplayEvent">
-        @Html.DisplayNameFor(model => model.ChildPrice)
+        <b>Child Price: </b>
 
         @Html.DisplayFor(model => model.ChildPrice)
     </div>
     <div class="DisplayEvent">
-        @Html.DisplayNameFor(model => model.CompanyName)
+        <b>Company Name: </b>
 
         @Html.DisplayFor(model => model.CompanyName)
     </div>
 </div>
+<br />
 <p>
     @{int id = Model.EventID; }
-    @Html.ActionLink("Register", "Create", id) |
-    @Html.ActionLink("Back to List", "Index", id)
+    @if (Model.OpenForRegistration)
+    {
+        @Html.ActionLink("Register", "Create", id);
+        <a> | </a>
+    }
+    @Html.ActionLink("Back to Events", "Index", "UserEvents")
 </p>

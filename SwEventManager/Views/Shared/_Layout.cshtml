@@ -1,5 +1,8 @@
 ﻿<!DOCTYPE html>
+
 <html>
+
+@*<head style="background-color: #00FFFF">*@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +10,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
+@*<body style="background-color: #2F4F4F">*@
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -20,8 +24,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("AdminUsers", "Index", "AdminUsers")</li>
-                    <li>@Html.ActionLink("AdminEvents", "Index", "AdminEvents")</li>
+                    <li>@Html.ActionLink("Events", "Index", "AdminEvents")</li>
+                    <li>@Html.ActionLink("Users", "Index", "AdminUsers")</li>
                     <li>@Html.ActionLink("UserView(Events)", "Index", "UserEvents")</li>
                     <li>@Html.ActionLink("Logout", "Logout", "Users")</li>
                 </ul>
@@ -41,3 +45,18 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+<style>
+    body {
+        background-color: aqua;
+        color: black;
+    }
+
+    head {
+        background-color: slategray;
+        color: whitesmoke;
+    }
+    label {
+        color: midnightblue
+    }
+</style>

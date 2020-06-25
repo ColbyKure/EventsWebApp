@@ -2,21 +2,20 @@
 @model SwEventManager.Models.User
 
 @{
-    ViewBag.Title = "Events App";
+    ViewBag.Title = "LoginFailed";
 }
-
 
 <h2>Login</h2>
 
 
-@using (Html.BeginForm("Login","Users", FormMethod.Post, new {@class = "form-container"}))
+@using (Html.BeginForm("Login", "Users", FormMethod.Post, new { @class = "form-container" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-     
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -31,6 +30,7 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                <p><b>Wrong username or password.</b> Please try again</p>
             </div>
         </div>
         <div class="form-group">
@@ -42,8 +42,8 @@
 }
 
 <div>
-    @*@Html.ActionLink("Register", "Index", "Users/Create")*@
-    @Html.ActionLink("Register", "../Users/Create")
+    @Html.ActionLink("Register", "Index", "Users/Create")
+
 </div>
 
 @section Scripts {
