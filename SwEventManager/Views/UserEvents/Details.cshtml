@@ -74,8 +74,13 @@
         @Html.DisplayFor(model => model.CompanyName)
     </div>
 </div>
+<br />
 <p>
     @{int id = Model.EventID; }
-    @Html.ActionLink("Register", "Create", id) |
-    @Html.ActionLink("Back to List", "Index", id)
+    @if (Model.OpenForRegistration)
+    {
+        @Html.ActionLink("Register", "Create", id);
+        <a> | </a>
+    }
+    @Html.ActionLink("Back to List", "Index", "UserEvents")
 </p>
