@@ -167,6 +167,7 @@ namespace SwEventManager.Controllers
                     }
                     else
                     {
+                        string oldPath = null;
                         @event.imagePath = oldPath;
                     }
                     db.SaveChanges();
