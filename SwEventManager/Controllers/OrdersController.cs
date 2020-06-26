@@ -19,8 +19,20 @@ namespace SwEventManager.Controllers
         // GET: Orders
         public ActionResult Index()
         {
-            var orders = db.Orders.Include(o => o.Event).Include(o => o.User);
-            return View(orders.ToList());
+            int sessionId = Int32.Parse(Session["UserID"].ToString());
+
+            if (Session["IsAdmin"].ToString().Equals("True"))
+            {
+                var orders = db.Orders.Include(o => o.Event).Include(o => o.User);
+                
+                return View(orders.ToList());
+            }
+            else
+            {
+                var orders = db.Orders.Where(o => o.UserID == sessionId);
+                //var orders = db.Orders.Include(o => o.Event).Include(o => o.User);
+                return View(orders.ToList());
+            }
         }
 
         // GET: Orders/Details/5
@@ -83,7 +95,13 @@ namespace SwEventManager.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName", order.EventID);
+            //ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName", order.EventID);
+            //ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName", order.EventID).First();
+            ViewData["EventName"] = db.Events.Find(order.EventID).EventName.ToString();
+            Console.WriteLine(ViewData["EventName"]);
+            String a = ViewData["EventName"].ToString();
+
+
             ViewBag.UserID = new SelectList(db.Users, "UserId", "Firstname", order.UserID);
             return View(order);
         }
@@ -95,8 +113,14 @@ namespace SwEventManager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "OrderID,UserID,EventID,PhoneNum,Location,TotalAdult,TotalChild,OrderDate,totalPrice")] Order order)
         {
+            
             if (ModelState.IsValid)
             {
+                order.UserID = Int32.Parse(Session["UserID"].ToString());
+                order.OrderDate = DateTime.Now;
+                Event event1 = db.Events.Find(order.EventID);
+                order.totalPrice = order.TotalAdult * event1.AdultPrice + order.TotalChild * event1.ChildPrice;
+                
                 db.Entry(order).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
