@@ -11,16 +11,22 @@ namespace SwEventManager.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Order
     {
         public int OrderID { get; set; }
         public int UserID { get; set; }
         public int EventID { get; set; }
+        [Required]
         public string PhoneNum { get; set; }
         public string Location { get; set; }
+        [Required]
         public int TotalAdult { get; set; }
+        [Required]
         public int TotalChild { get; set; }
+        [Required]
+        [DataType(DataType.DateTime)]
         public Nullable<System.DateTime> OrderDate { get; set; }
         public Nullable<double> totalPrice { get; set; }
     

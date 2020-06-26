@@ -40,7 +40,7 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="EventCatagory">Catagory</label>
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.EventCategory, (IEnumerable<SelectListItem>)ViewBag.MyCatagories, "Select Catagory")
+                @Html.DropDownListFor(model => model.EventCategory, (IEnumerable<SelectListItem>)ViewBag.MyCatagories, "Select Catagory", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.EventCategory, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -89,7 +89,7 @@
             <label class="control-label col-md-2" for="OpenForRegistration">Open for Registration</label>
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.OpenForRegistration)
+                    @Html.CheckBoxFor(model => model.OpenForRegistration, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.OpenForRegistration, "", new { @class = "text-danger" })
                 </div>
             </div>

@@ -117,8 +117,8 @@ namespace SwEventManager.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Event @event = db.Events.Find(id);
-            ViewBag.oldPath = @event.imagePath;
-            ViewBag.oldStartDate = @event.StartDate;
+            TempData["oldPath"] = @event.imagePath;
+           
             if (@event == null)
             {
                 return HttpNotFound();
@@ -132,7 +132,7 @@ namespace SwEventManager.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventID,EventName,EventDescription,EventCategory,StartDate,EndDate,StartTime,EndTime,Location,OpenForRegistration,imagePath,AdultPrice,ChildPrice,CompanyName")] Event @event, HttpPostedFileBase file, string tempTest)
+        public ActionResult Edit([Bind(Include = "EventID,EventName,EventDescription,EventCategory,StartDate,EndDate,StartTime,EndTime,Location,OpenForRegistration,imagePath,AdultPrice,ChildPrice,CompanyName")] Event @event, HttpPostedFileBase file)
         {
             #region ViewBag
             ViewBag.MyCatagories = new List<SelectListItem>() {
@@ -167,10 +167,10 @@ namespace SwEventManager.Controllers
                     }
                     else
                     {
-                        @event.imagePath = ViewBag.oldPath;
+                        @event.imagePath = TempData["oldPath"].ToString();
                         db.SaveChanges();
                     }
-                    db.SaveChanges();
+                    //db.SaveChanges();
                     return RedirectToAction("Index");
                 }
                 catch

@@ -31,8 +31,8 @@
           <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="EventID" Type="int" Nullable="false" />
-          <Property Name="PhoneNum" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="Location" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PhoneNum" Type="varchar" MaxLength="15" />
+          <Property Name="Location" Type="varchar" MaxLength="100" />
           <Property Name="TotalAdult" Type="int" Nullable="false" />
           <Property Name="TotalChild" Type="int" Nullable="false" />
           <Property Name="OrderDate" Type="datetime" />
@@ -46,8 +46,8 @@
           <Property Name="Firstname" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Lastname" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IsAdmin" Type="bit" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="EventFK">
           <End Role="Events" Type="Self.Events" Multiplicity="1">
@@ -121,8 +121,8 @@
           <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="EventID" Type="Int32" Nullable="false" />
-          <Property Name="PhoneNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNum" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="TotalAdult" Type="Int32" Nullable="false" />
           <Property Name="TotalChild" Type="Int32" Nullable="false" />
           <Property Name="OrderDate" Type="DateTime" Precision="3" />
@@ -138,7 +138,7 @@
           <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Orders" Relationship="Self.UserFK" FromRole="Users" ToRole="Orders" />
         </EntityType>

@@ -29,16 +29,14 @@ namespace SwEventManager.Models
         [Required]
         public string EventCategory { get; set; }
         [Required]
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         public System.DateTime StartDate { get; set; }
         [Required]
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         public System.DateTime EndDate { get; set; }
         [Required]
-        [DataType(DataType.Time)]
         public Nullable<System.TimeSpan> StartTime { get; set; }
         [Required]
-        [DataType(DataType.Time)]
         public Nullable<System.TimeSpan> EndTime { get; set; }
         [Required]
         public string Location { get; set; }

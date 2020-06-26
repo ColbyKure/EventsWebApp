@@ -29,6 +29,7 @@
                     <li>@Html.ActionLink("Comming Events", "Index", "UserEvents")</li>
                     <li>@Html.ActionLink("Customer Booked", "Index", "Orders")</li>
                     <li>@Html.ActionLink("Logout", "Logout", "Users")</li>
+                    <text style="text-align: right; color:white"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp @Session["Firstname"]</text>
                 </ul>
             </div>
         </div>
@@ -49,7 +50,7 @@
 
 <style>
     body {
-        background-color: aqua;
+        background-color: #a8b9e5;
         color: black;
     }
 
@@ -59,5 +60,34 @@
     }
     label {
         color: midnightblue
+    }
+    .EventDisplay {
+        margin: 5px,5px,5px,5px;
+        border-radius: 25px;
+        float: left;
+        clear:right;
+        border: 2px solid #0094ff;
+        padding: 20px;
+        width: 250px;
+        height: 250px;
+    }
+    .DisplayEvent {
+        border-radius: 25px;
+        float:left;
+        clear:right;
+        border: 2px solid #0094ff;
+        padding: 20px;
+        width: 500px;
+        height: 100px;
+    }
+    .links{
+        float:left;
+        clear:both;
+    }
+    .boxed {
+        border: 10px white;
+    }
+    .new-user{
+        color: #080328
     }
 </style>
