@@ -76,11 +76,19 @@ namespace SwEventManager.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            //order.OrderDate = DateTime.Now;
+            //order.UserID = Int32.Parse(Session["UserID"].ToString());
+            //Event event2 = db.Events.Find(order.EventID);
+            //order.totalPrice = order.TotalAdult * event2.AdultPrice + order.TotalChild * event2.ChildPrice;
+            //order.Location = event2.Location;
+            //db.Orders.Add(order);
+            //db.SaveChanges();
+            
 
             ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName", order.EventID);
             ViewBag.UserID = new SelectList(db.Users, "UserId", "Firstname", order.UserID);
-            
-            return View(order);
+            return RedirectToAction("Index");
+            //return View(order);
         }
 
         // GET: Orders/Edit/5

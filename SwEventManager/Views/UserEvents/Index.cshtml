@@ -1,60 +1,103 @@
 ﻿@model IEnumerable<SwEventManager.Models.Event>
 
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Index"; ViewBag.Title = "Index";
 }
+
 
 <h2>Events</h2>
+<hr/><br/>
 
 
 
-@{
-    ViewBag.Title = "Event Manager";
-    ViewBag.pageLabel1 = "Event Manager";
-    ViewBag.pageLabel2 = "User Manager";
-    ViewBag.Index = "Index";
-    ViewBag.AdminEvents = "AdminEvents";
-    ViewBag.AdminUsers = "AdminUsers";
-    ViewBag.UserEvents = "UserEvents";
-    ViewBag.UsView = "User View";
-}
 
-<table class="table">
-    <tr>
-        <th>Event Name</th>
-        <th>Catagory</th>
-        <th>Location</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-        <th>Start Time</th>
-        <th>End Time</th>
-        <th>Purchase</th>
-    </tr>
-    @foreach (var item in Model)
-    {
-<tr>
-    <td>
+
+@foreach (var item in Model)
+{
+
+    //display image here
+    <a>
+        
+        @*<img src="@Url.Content(item.imagePath)" alt="Image" />
+            <img src="@Url.Content(item.imagePath)" alt="Image" />*@
+    </a>
+    <div class="EventDisplay">
+        <img src=@item.imagePath alt="image" style="width:100px">
         <a href="@Url.Action("Details","UserEvents",new { id = item.EventID })">
             <Label>
-                @Html.DisplayFor(modelItem => item.EventName)
+                Location: @Html.DisplayFor(modelItem => item.Location) <br /> Event: @Html.DisplayFor(modelItem => item.EventName)
             </Label>
         </a>
-    </td>
-    <td>@Html.DisplayFor(modelItem => item.EventCategory)</td>
-    <td>@Html.DisplayFor(modelItem => item.Location)</td>
-    <td>@item.StartDate.ToShortDateString()</td>
-    <td>@item.EndDate.ToShortDateString()</td>
-    <td>@item.StartTime.ToString()</td>
-    <td>@item.EndTime.ToString()</td>
+    </div>
+
+}
+<br/><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br/><br />
 
 
-    <td>@Html.ActionLink("Purchase", "Create", new { id = item.EventID })</td>
-  
 
-</tr>
+
+
+
+
+@*@model IEnumerable<SwEventManager.Models.Event>
+
+    @{
+        ViewBag.Title = "Index";
     }
 
-</table>
+    <h2>Events</h2>
+
+
+
+    @{
+        ViewBag.Title = "Event Manager";
+        ViewBag.pageLabel1 = "Event Manager";
+        ViewBag.pageLabel2 = "User Manager";
+        ViewBag.Index = "Index";
+        ViewBag.AdminEvents = "AdminEvents";
+        ViewBag.AdminUsers = "AdminUsers";
+        ViewBag.UserEvents = "UserEvents";
+        ViewBag.UsView = "User View";
+    }
+
+    <table class="table">
+        <tr>
+            <th>Event Name</th>
+            <th>Catagory</th>
+            <th>Location</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Purchase</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            <a href="@Url.Action("Details","UserEvents",new { id = item.EventID })">
+                <Label>
+                    @Html.DisplayFor(modelItem => item.EventName)
+                </Label>
+            </a>
+        </td>
+        <td>@Html.DisplayFor(modelItem => item.EventCategory)</td>
+        <td>@Html.DisplayFor(modelItem => item.Location)</td>
+        <td>@item.StartDate.ToShortDateString()</td>
+        <td>@item.EndDate.ToShortDateString()</td>
+        <td>@item.StartTime.ToString()</td>
+        <td>@item.EndTime.ToString()</td>
+
+
+        <td>@Html.ActionLink("Purchase", "Create", new { id = item.EventID })</td>
+
+
+    </tr>
+        }
+
+    </table>*@
 
 
 
