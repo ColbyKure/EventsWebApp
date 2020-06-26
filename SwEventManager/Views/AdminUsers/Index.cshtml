@@ -5,10 +5,10 @@
 }
 
 <h2>User Manager</h2>
-
-<p>
-    @Html.ActionLink("New User", "Create")
-</p>
+<hr/><br/>
+<div style="font-size:18px; text-align:center">
+    @Html.ActionLink("Create New User", "Create", null, new { @class = "new-user" })
+</div>
 <table class="table">
     <tr>
         <th>First Name</th>

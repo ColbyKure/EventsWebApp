@@ -2,20 +2,13 @@
 
 @{
     ViewBag.Title = "Event Manager";
-    ViewBag.pageLabel1 = "Event Manager";
-    ViewBag.pageLabel2 = "User Manager";
-    ViewBag.Index = "Index";
-    ViewBag.AdminEvents = "AdminEvents";
-    ViewBag.AdminUsers = "AdminUsers";
-    ViewBag.UserEvents = "UserEvents";
-    ViewBag.UsView = "User View";
 }
 
 <h2>Event Manager</h2>
-
-<p>
-    @Html.ActionLink("New Event", "Create")
-</p>
+<hr/><br/>
+     <div style="font-size:18px; text-align:center">
+         @Html.ActionLink("Create New Event", "Create", null, new { @class = "new-user" })
+     </div>
 <table class="table">
     <tr>
         <th>Event Name</th>

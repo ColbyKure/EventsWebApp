@@ -2,7 +2,7 @@
 @model SwEventManager.Models.User
 
 @{
-    ViewBag.Title = "Events App";
+    ViewBag.Title = "Events App Login";
 }
 
 
@@ -41,9 +41,10 @@
     </div>
 }
 
-<div>
-    @*@Html.ActionLink("Register", "Index", "Users/Create")*@
-    @Html.ActionLink("Register", "../Users/Create")
+<div class="col-md-offset-2">
+    <div style="font-size:18px">
+        @Html.ActionLink("Register New User", "../Users/Create", null, new { @class = "new-user" })
+    </div>
 </div>
 
 @section Scripts {

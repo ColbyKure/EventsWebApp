@@ -11,7 +11,8 @@ namespace SwEventManager.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Event
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,17 +22,30 @@ namespace SwEventManager.Models
         }
     
         public int EventID { get; set; }
+        [Required]
         public string EventName { get; set; }
+        [Required]
         public string EventDescription { get; set; }
+        [Required]
         public string EventCategory { get; set; }
+        [Required]
+        [DataType(DataType.DateTime)]
         public System.DateTime StartDate { get; set; }
+        [Required]
+        [DataType(DataType.DateTime)]
         public System.DateTime EndDate { get; set; }
+        [Required]
         public Nullable<System.TimeSpan> StartTime { get; set; }
+        [Required]
         public Nullable<System.TimeSpan> EndTime { get; set; }
+        [Required]
         public string Location { get; set; }
         public bool OpenForRegistration { get; set; }
+        [Required]
         public double AdultPrice { get; set; }
+        [Required]
         public double ChildPrice { get; set; }
+        [Required]
         public string CompanyName { get; set; }
         public string imagePath { get; set; }
     
