@@ -37,7 +37,8 @@ namespace SwEventManager.Controllers
         public ActionResult Create()
         {
             ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName");
-            ViewBag.UserID = new SelectList(db.Users, "UserId", "Firstname");
+            //ViewBag.UserID = new SelectList(db.Users, "UserId", "Firstname");
+            //ViewBag.UserID = db.Users
             return View();
         }
 

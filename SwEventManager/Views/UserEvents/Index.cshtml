@@ -1,35 +1,37 @@
 ﻿@model IEnumerable<SwEventManager.Models.Event>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Event Page";
 }
 
-<h2>Events</h2>
+<h2> All Events</h2>
+<hr />
 
 
 
-@foreach (var item in Model)
-{
-    //display image here
-    <div class="EventDisplay">
-        <a>
-            <img src="@item.imagePath" alt="image" style="width:100px">
-            @*<img src="@Url.Content(item.imagePath)" alt="Image" />
-            <img src="@Url.Content(item.imagePath)" alt="Image" />*@
-        </a>
-        <br />
-        <a href="@Url.Action("Details","UserEvents",new { id = item.EventID })">
+<div class="boxed">
+    @foreach (var item in Model)
+    {
+        //display image here
+        <div class="EventDisplay">
+            <a>
+                <img src="@item.imagePath" alt="image" style="width:170px">
+            </a>
+            <br />
+            <a href="@Url.Action("Details","UserEvents",new { id = item.EventID })">
 
-            <Label>
-                Event: @Html.DisplayFor(modelItem => item.EventName) <br /> Location: @Html.DisplayFor(modelItem => item.Location)
-            </Label>
-        </a>
-    </div>
-    
+                <Label>
+                    Event: @Html.DisplayFor(modelItem => item.EventName)
+                    <br />
+                    Location: @Html.DisplayFor(modelItem => item.Location)
+                </Label>
+            </a>
+        </div>
+    }
+</div>
 
-
-
-
-}
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br />
 
 

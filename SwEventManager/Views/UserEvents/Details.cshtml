@@ -5,11 +5,9 @@
 }
 
 <h2>Event Details</h2>
-
 <hr />
+<br />
 <div>
-
-
 
     <div class="DisplayEvent">
         <b>Event Name: </b>
@@ -17,67 +15,52 @@
     </div>
     <div class="DisplayEvent">
         <b>Event Description: </b>
-
         @Html.DisplayFor(model => model.EventDescription)
     </div>
     <div class="DisplayEvent">
         <b>Event Category: </b>
-
         @Html.DisplayFor(model => model.EventCategory)
     </div>
     <div class="DisplayEvent">
         <b>Start Date: </b>
-
-        @Html.DisplayFor(model => model.StartDate)
-    </div>
-    <div class="DisplayEvent">
+        @Model.StartDate.ToShortDateString();
+        <br/>
         <b>End Date: </b>
-
-        @Html.DisplayFor(model => model.EndDate)
+        @Model.EndDate.ToShortDateString();
     </div>
     <div class="DisplayEvent">
         <b>Start Time: </b>
-
         @Html.DisplayFor(model => model.StartTime)
-    </div>
-    <div class="DisplayEvent">
+        <br/>
         <b>End Time: </b>
-
         @Html.DisplayFor(model => model.EndTime)
     </div>
     <div class="DisplayEvent">
         <b>Location: </b>
-
         @Html.DisplayFor(model => model.Location)
     </div>
     <div class="DisplayEvent">
-        <b>Open For Registration: </b>
-
-        @Html.DisplayFor(model => model.OpenForRegistration)
-    </div>
-    <div class="DisplayEvent">
         <b>Adult Price: </b>
-
         @Html.DisplayFor(model => model.AdultPrice)
-    </div>
-    <div class="DisplayEvent">
+        <br/>
         <b>Child Price: </b>
-
         @Html.DisplayFor(model => model.ChildPrice)
     </div>
     <div class="DisplayEvent">
         <b>Company Name: </b>
-
         @Html.DisplayFor(model => model.CompanyName)
     </div>
 </div>
-<br />
-<p class="links">
+<br/>
+<p class="links", style="font-size:20px">
     @{int id = Model.EventID; }
     @if (Model.OpenForRegistration)
     {
         @Html.ActionLink("Register", "Create", id);
-        <a> | </a>
+        <a>|</a>
     }
     @Html.ActionLink("Back to Events", "Index", "UserEvents")
 </p>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
