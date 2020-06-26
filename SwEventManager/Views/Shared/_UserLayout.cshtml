@@ -23,13 +23,10 @@
                 @Html.ActionLink("Events App", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Events Manage", "Index", "AdminEvents")</li>
-                    <li>@Html.ActionLink("Admin", "Index", "AdminUsers")</li>
+                <ul class="nav navbar-nav">                                     
                     <li>@Html.ActionLink("Comming Events", "Index", "UserEvents")</li>
-                    <li>@Html.ActionLink("Customer Booked", "Index", "Orders")</li>
+                    <li>@Html.ActionLink("Your Events", "Index", "Orders")</li>
                     <li>@Html.ActionLink("Logout", "Logout", "Users")</li>
-                    <text style="text-align: right; color:white"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp @Session["Firstname"]</text>
                 </ul>
             </div>
         </div>
@@ -50,7 +47,7 @@
 
 <style>
     body {
-        background-color: #a8b9e5;
+        background-color: aqua;
         color: black;
     }
 
@@ -58,36 +55,8 @@
         background-color: slategray;
         color: whitesmoke;
     }
+
     label {
         color: midnightblue
-    }
-    .EventDisplay {
-        margin: 5px,5px,5px,5px;
-        border-radius: 25px;
-        float: left;
-        clear:right;
-        border: 2px solid #0094ff;
-        padding: 20px;
-        width: 250px;
-        height: 250px;
-    }
-    .DisplayEvent {
-        border-radius: 25px;
-        float:left;
-        clear:right;
-        border: 2px solid #0094ff;
-        padding: 20px;
-        width: 500px;
-        height: 100px;
-    }
-    .links{
-        float:left;
-        clear:both;
-    }
-    .boxed {
-        border: 10px white;
-    }
-    .new-user{
-        color: #080328
     }
 </style>

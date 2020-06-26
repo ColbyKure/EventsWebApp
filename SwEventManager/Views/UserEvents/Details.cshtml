@@ -49,10 +49,23 @@
         <b>Company Name: </b>
         @Html.DisplayFor(model => model.CompanyName)
     </div>
+
+    <br />
+    <a>
+        <img src="@Model.imagePath" alt="image" style="width:500px">
+        @*<img src="@Url.Content(item.imagePath)" alt="Image" />
+            <img src="@Url.Content(item.imagePath)" alt="Image" />*@
+    </a>
+    <br />
+
+
+
+
 </div>
 <br/>
 <p class="links", style="font-size:20px">
     @{int id = Model.EventID; }
+
     @if (Model.OpenForRegistration)
     {
         @Html.ActionLink("Register", "Create", id);

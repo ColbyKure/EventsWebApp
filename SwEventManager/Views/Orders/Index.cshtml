@@ -4,72 +4,82 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Your upcoming events</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PhoneNum)
+            @Html.DisplayNameFor(model => model.User.Firstname)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Location)
+            @Html.DisplayNameFor(model => model.User.Lastname)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNum)
+        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.TotalAdult)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TotalChild)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.totalPrice)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Event.EventName)
+            @Html.DisplayNameFor(model => model.OrderDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User.Firstname)
+            @Html.DisplayNameFor(model => model.Event.EventName)
         </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalAdult)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalChild)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.totalPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Event.EventName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.Firstname)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OrderID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OrderID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OrderID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.User.Firstname)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.User.Lastname)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PhoneNum)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalAdult)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalChild)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.totalPrice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OrderDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Event.EventName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Location)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
+    </td>
+</tr>
 }
 
 </table>

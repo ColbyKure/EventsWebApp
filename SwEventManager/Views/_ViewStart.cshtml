@@ -1,3 +1,21 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@{ 
+
+    if (Session["IsAdmin"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        string isAdmin = Session["IsAdmin"].ToString();
+        switch (isAdmin)
+        {
+            case "False":
+                Layout = "~/Views/Shared/_UserLayout.cshtml";
+                break;
+            default:
+                Layout = "~/Views/Shared/_Layout.cshtml";
+                break;
+        }
+    }
+
 }

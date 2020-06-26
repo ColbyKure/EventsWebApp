@@ -88,6 +88,8 @@ namespace SwEventManager.Controllers
                 if (u != null)
                 {
                     Session["User"] = u;
+                Session["Username"] = u.Firstname;
+                Session["UserID"] = u.UserId;
                     Session["IsAdmin"] = u.IsAdmin.ToString();
                 Console.WriteLine(Session["IsAdmin"]);
                     Console.WriteLine("Login sucess");
