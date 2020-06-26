@@ -70,10 +70,20 @@
 
         @Html.DisplayFor(model => model.CompanyName)
     </div>
+
+    <br />
+    <a>
+        <img src=model.imagePath alt="image" style="width:500px">
+        @*<img src="@Url.Content(item.imagePath)" alt="Image" />
+            <img src="@Url.Content(item.imagePath)" alt="Image" />*@
+    </a>
+    <br />
+
 </div>
 <br />
 <p>
     @{int id = Model.EventID; }
+
     @if (Model.OpenForRegistration)
     {
         @Html.ActionLink("Register", "Create", id);

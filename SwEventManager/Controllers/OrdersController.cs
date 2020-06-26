@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SwEventManager.Models;
+using SwEventManager.Utilities;
 
 namespace SwEventManager.Controllers
 {
+    [SessionCheck]
     public class OrdersController : Controller
     {
         private SummitWorksEventManagerEntities db = new SummitWorksEventManagerEntities();
@@ -53,6 +55,11 @@ namespace SwEventManager.Controllers
         {
             if (ModelState.IsValid)
             {
+                order.OrderDate = DateTime.Now;
+                order.UserID = Int32.Parse(Session["UserID"].ToString());         
+                Event event1 = db.Events.Find(order.EventID);
+                order.totalPrice = order.TotalAdult*event1.AdultPrice + order.TotalChild*event1.ChildPrice;
+                order.Location = event1.Location;
                 db.Orders.Add(order);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -60,6 +67,7 @@ namespace SwEventManager.Controllers
 
             ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName", order.EventID);
             ViewBag.UserID = new SelectList(db.Users, "UserId", "Firstname", order.UserID);
+            
             return View(order);
         }
 

@@ -23,9 +23,7 @@
                 @Html.ActionLink("Events App", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Events Manage", "Index", "AdminEvents")</li>
-                    <li>@Html.ActionLink("Admin", "Index", "AdminUsers")</li>
+                <ul class="nav navbar-nav">                                     
                     <li>@Html.ActionLink("Comming Events", "Index", "UserEvents")</li>
                     <li>@Html.ActionLink("Your Events", "Index", "Orders")</li>
                     <li>@Html.ActionLink("Logout", "Logout", "Users")</li>
@@ -57,6 +55,7 @@
         background-color: slategray;
         color: whitesmoke;
     }
+
     label {
         color: midnightblue
     }

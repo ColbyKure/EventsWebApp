@@ -7,10 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SwEventManager.Models;
-
+using SwEventManager.Utilities;
 
 namespace SwEventManager.Controllers
 {
+    [SessionCheck]
     public class UserOrdersController : Controller
     {
         private SummitWorksEventManagerEntities db = new SummitWorksEventManagerEntities();
@@ -57,8 +58,10 @@ namespace SwEventManager.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "OrderID,UserID,EventID,PhoneNum,Location,TotalAdult,TotalChild,OrderDate,totalPrice")] Order order)
         {
+            
             if (ModelState.IsValid)
             {
+                order.OrderDate = DateTime.Now;
                 db.Orders.Add(order);
                 db.SaveChanges();
                 ViewBag.UserID = new SelectList(db.Users, "UserId", "UserId");

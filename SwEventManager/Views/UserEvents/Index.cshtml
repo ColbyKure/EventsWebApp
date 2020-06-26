@@ -8,26 +8,53 @@
 
 
 
-@foreach (var item in Model)
-{
-    //display image here
-    <br />
-    <a>
-        <img src=@item.imagePath alt="image" style="width:100px">
-        @*<img src="@Url.Content(item.imagePath)" alt="Image" />
-        <img src="@Url.Content(item.imagePath)" alt="Image" />*@
-    </a>
-    <br />
-    <a href="@Url.Action("Details","UserEvents",new { id = item.EventID })">
-        
-        <Label>
-            Event: @Html.DisplayFor(modelItem => item.EventName) <br /> Location: @Html.DisplayFor(modelItem => item.Location)
-        </Label>
-    </a>
-
-
-
-
+@{
+    ViewBag.Title = "Event Manager";
+    ViewBag.pageLabel1 = "Event Manager";
+    ViewBag.pageLabel2 = "User Manager";
+    ViewBag.Index = "Index";
+    ViewBag.AdminEvents = "AdminEvents";
+    ViewBag.AdminUsers = "AdminUsers";
+    ViewBag.UserEvents = "UserEvents";
+    ViewBag.UsView = "User View";
 }
+
+<table class="table">
+    <tr>
+        <th>Event Name</th>
+        <th>Catagory</th>
+        <th>Location</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Purchase</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        <a href="@Url.Action("Details","UserEvents",new { id = item.EventID })">
+            <Label>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </Label>
+        </a>
+    </td>
+    <td>@Html.DisplayFor(modelItem => item.EventCategory)</td>
+    <td>@Html.DisplayFor(modelItem => item.Location)</td>
+    <td>@item.StartDate.ToShortDateString()</td>
+    <td>@item.EndDate.ToShortDateString()</td>
+    <td>@item.StartTime.ToString()</td>
+    <td>@item.EndTime.ToString()</td>
+
+
+    <td>@Html.ActionLink("Purchase", "Create", new { id = item.EventID })</td>
+  
+
+</tr>
+    }
+
+</table>
+
 
 
