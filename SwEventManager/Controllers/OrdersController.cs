@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using SwEventManager.Models;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using SwEventManager.Models;
 
 namespace SwEventManager.Controllers
 {
@@ -122,6 +119,17 @@ namespace SwEventManager.Controllers
             db.Orders.Remove(order);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult UserCart(int id)
+        {
+            ViewBag.aPrice = from e in db.Events
+                         where e.EventID == id
+                         select e.AdultPrice;
+            ViewBag.cPrice = from e in db.Events
+                             where e.EventID == id
+                             select e.ChildPrice;
+            return View();
+           
         }
 
         protected override void Dispose(bool disposing)
