@@ -3,37 +3,88 @@
 @{
     ViewBag.Title = "Event Manager";
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+<br />
 <h2>Event Manager</h2>
-<hr/><br/>
-     <div style="font-size:18px; text-align:center">
-         @Html.ActionLink("Create New Event", "Create", null, new { @class = "new-user" })
-     </div>
-<table class="table">
-    <tr>
-        <th>Event Name</th>
-        <th>Catagory</th>
-        <th>Location</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-        <th>Start Time</th>
-        <th>End Time</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
+<hr />
+<br />
+<div style="font-size:18px; text-align:center">
+    @Html.ActionLink("Create New Event", "Create", null, new { @class = "new-user" })
+</div>
+<div class="container body-content">
 
-@foreach (var item in Model) {
-<tr>
-    <td>@item.EventName</td>
-    <td>@Html.DisplayFor(modelItem => item.EventCategory)</td>
-    <td>@Html.DisplayFor(modelItem => item.Location)</td>
-    <td>@item.StartDate.ToShortDateString()</td>
-    <td>@item.EndDate.ToShortDateString()</td>
-    <td>@item.StartTime.ToString()</td>
-    <td>@item.EndTime.ToString()</td>
-    <td>@Html.ActionLink("Edit", "Edit", new { id = item.EventID })</td>
-    <td>@Html.ActionLink("Delete", "Delete", new { id = item.EventID })</td>
-</tr>
-}
+    <table class="table">
+        <tr>
+            <th scope="col">Event Name</th>
+            <th scope="col">Catagory</th>
+            <th scope="col">Location</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Start Time</th>
+            <th scope="col">End Time</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EventName</td>
+                <td>@Html.DisplayFor(modelItem => item.EventCategory)</td>
+                <td>@Html.DisplayFor(modelItem => item.Location)</td>
+                <td>@item.StartDate.ToShortDateString()</td>
+                <td>@item.EndDate.ToShortDateString()</td>
+                <td>@item.StartTime.ToString()</td>
+                <td>@item.EndTime.ToString()</td>
+                <td>@Html.ActionLink("Edit", "Edit", new { id = item.EventID })</td>
+                <td>@Html.ActionLink("Delete", "Delete", new { id = item.EventID })</td>
+            </tr>
+        }
+    </table>
+    <br />
+</div>
+<hr />
+
+
+
+
+
+@*<h2>Event Manager</h2>
+    <hr/>
+    <br/>
+    <div style="font-size:18px; text-align:center">
+        @Html.ActionLink("Create New Event", "Create", null, new { @class = "new-user" })
+    </div>
+    <div>
+        <div class="container">
+        <tr>
+            <th>Event Name</th>
+            <th>Catagory</th>
+            <th>Location</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>@item.EventName</td>
+                <td>@Html.DisplayFor(modelItem => item.EventCategory)</td>
+                <td>@Html.DisplayFor(modelItem => item.Location)</td>
+                <td>@item.StartDate.ToShortDateString()</td>
+                <td>@item.EndDate.ToShortDateString()</td>
+                <td>@item.StartTime.ToString()</td>
+                <td>@item.EndTime.ToString()</td>
+                <td>@Html.ActionLink("Edit", "Edit", new { id = item.EventID })</td>
+                <td>@Html.ActionLink("Delete", "Delete", new { id = item.EventID })</td>
+            </tr>
+        }
+        </table>
+    </div>*@

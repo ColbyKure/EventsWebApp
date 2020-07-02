@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Event Details";
 }
-
+<br/>
 <h2>Event Details</h2>
 <hr />
 <br />
@@ -49,27 +49,25 @@
         <b>Company Name: </b>
         @Html.DisplayFor(model => model.CompanyName)
     </div>
-
     <br />
-    @*<a>
-        <img src="@Model.imagePath" alt="image" style="width:500px">
-    </a>*@
     <br />
-
-
-
-
 </div>
 <br/>
-<p class="links", style="font-size:20px">
-    @{int id = Model.EventID; }
-
+<p class="links" , style="font-size:20px">
+    @*@{ 
+        int id = Model.EventID;
+     }*@
     @if (Model.OpenForRegistration)
     {
-        @Html.ActionLink("Register", "Create", id);
-        <a>|</a>
+        @Html.ActionLink("Register", "../Orders/Create", new { eventID = Model.EventID });
     }
+    else
+    {
+        @Html.ActionLink("Event Closed", "Index", "UserEvents")
+    }
+    <a>|</a>
     @Html.ActionLink("Back to Events", "Index", "UserEvents")
 </p>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <br /><br /><br /><br /><br /><br /><br /><br />
+<hr/>

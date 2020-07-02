@@ -25,9 +25,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Event Manager", "Index", "AdminEvents")</li>
-                    <li>@Html.ActionLink("Admin", "Index", "AdminUsers")</li>
-                    <li>@Html.ActionLink("Comming Events", "Index", "UserEvents")</li>
-                    <li>@Html.ActionLink("Customer Booked", "Index", "Orders")</li>
+                    <li>@Html.ActionLink("User Manager", "Index", "AdminUsers")</li>
+                    <li>@Html.ActionLink("Events", "Index", "UserEvents")</li>
+                    <li>@Html.ActionLink("All orders", "Index", "Orders")</li>
                     <li>@Html.ActionLink("Logout", "Logout", "Users")</li>
                 </ul>
             </div>
@@ -35,7 +35,6 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
         <footer>
             <p>TEAM#2 Events App</p>
         </footer>
@@ -49,17 +48,14 @@
 
 <style>
     body {
-        background-color: #a8c7e5;
+        background-color: #d4e8ff;
         color: black;
     }
-
     head {
         background-color: slategray;
         color: whitesmoke;
     }
-    label {
-        color: midnightblue
-    }
+    label { color: midnightblue }
     .EventDisplay {
         margin: 5px,5px,5px,5px;
         border-radius: 25px;
@@ -67,8 +63,13 @@
         clear:right;
         border: 2px solid #0094ff;
         padding: 20px;
-        width: 200px;
-        height: 200px;
+        width: 330px;
+        height: 380px;
+    }
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .DisplayEvent {
         border-radius: 25px;
@@ -83,10 +84,22 @@
         float:left;
         clear:both;
     }
-    .boxed {
-        border: 10px white;
+    .boxed { border: 10px white; }
+    .new-user{ color: #5977ac }
+    thead {
+        color: black
     }
-    .new-user{
-        color: #080328
+    table, td, th {
+        border: 2px solid;
+    }
+    th {
+        background-color: #58d1ce
+    }
+    hr {
+        border: 1px solid;
+        color: #0f3d45
+    }
+    tr:hover {
+        background-color: #a5ede9;
     }
 </style>

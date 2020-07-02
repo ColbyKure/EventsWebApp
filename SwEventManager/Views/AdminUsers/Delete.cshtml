@@ -5,18 +5,17 @@
 }
 
 <h2>Delete User</h2>
-
+<hr/>
 <p style="font-size:18px">Are you sure you want to delete this User?</p>
 <div>
-    <hr />
     <dl class="dl-horizontal">
-        <dt>First Name</dt>
+        <dt>First Name:</dt>
         <dd>@Html.DisplayFor(model => model.Firstname)</dd>
-        <dt>Last Name</dt>
+        <dt>Last Name:</dt>
         <dd>@Html.DisplayFor(model => model.Lastname)</dd>
-        <dt>Email</dt>
+        <dt>Email:</dt>
         <dd>@Html.DisplayFor(model => model.Email)</dd>
-        <dt>Is Admin</dt>
+        <dt>Is Admin:</dt>
         <dd>@Html.DisplayFor(model => model.IsAdmin)</dd>
 
     </dl>
@@ -30,3 +29,5 @@
         </div>
     }
 </div>
+<br/>
+<hr/>

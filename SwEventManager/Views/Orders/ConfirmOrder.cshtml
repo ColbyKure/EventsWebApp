@@ -1,0 +1,37 @@
+﻿@model SwEventManager.Models.Order
+
+@{
+    ViewBag.Title = "Confirm Order";
+}
+<br />
+<h2>Confirm Order</h2>
+<hr />
+<br />
+<div>
+    <dl class="dl-horizontal">
+        <dt><b>Phone Number</b></dt>
+        <dd>@Html.DisplayFor(model => model.PhoneNum)</dd>
+        <dt><b>Location</b></dt>
+        <dd>@Html.DisplayFor(model => model.Location)</dd>
+        <dt><b>Total Adult</b></dt>
+        <dd>@Html.DisplayFor(model => model.TotalAdult)</dd>
+        <dt><b>Total Child</b></dt>
+        <dd>@Html.DisplayFor(model => model.TotalChild)</dd>
+        <dt><b>Order Date</b></dt>
+        <dd>@Html.DisplayFor(model => model.OrderDate)</dd>
+        <dt><b>Total Price</b></dt>
+        <dd>@Html.DisplayFor(model => model.totalPrice)</dd>
+        <dt><b>Confirmed</b></dt>
+        <dd>@Html.DisplayFor(model => model.confirmed)</dd>
+        <dt><b>Event Name</b></dt>
+        <dd>@Html.DisplayFor(model => model.Event.EventName)</dd>
+        <dt><b>First Name</b></dt>
+        <dd>@Html.DisplayFor(model => model.User.Firstname)</dd>
+        <dt><b>Last Name</b></dt>
+        <dd>@Html.DisplayFor(model => model.User.Lastname)</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Confirm", "ConfirmOrderAction", new { id = Model.OrderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

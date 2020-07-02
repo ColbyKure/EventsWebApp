@@ -83,23 +83,17 @@ namespace SwEventManager.Controllers
         public ActionResult Login(User user)
         {
             Console.WriteLine(user.Email);
-                var u = db.Users.Where(a => a.Email.Equals(user.Email) && a.Password.Equals(user.Password)).FirstOrDefault();
+            var u = db.Users.Where(a => a.Email.Equals(user.Email) && a.Password.Equals(user.Password)).FirstOrDefault();
 
-                if (u != null)
-                {
-                    Session["User"] = u;
-                Session["Username"] = u.Firstname;
+            if (u != null)
+            {
+                Session["User"] = u;
+                Session["Username"] = u.Firstname + " " + u.Lastname;
                 Session["UserID"] = u.UserId;
-                    Session["IsAdmin"] = u.IsAdmin.ToString();
-                Console.WriteLine(Session["IsAdmin"]);
-                    Console.WriteLine("Login sucess");
-                    return RedirectToAction("../AdminUsers");
-                }
-                else
-                {
-                    Console.WriteLine("Login failed");
-                    return View("../Users/LoginFailed");
-                }
+                Session["IsAdmin"] = u.IsAdmin.ToString();
+                return RedirectToAction("../AdminUsers");
+            }
+            return View("../Users/LoginFailed");
         }
 
         public ActionResult Logout()

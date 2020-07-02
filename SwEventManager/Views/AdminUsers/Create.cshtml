@@ -62,11 +62,13 @@
     </div>
 }
 
-<div class="col-md-offset-2 col-md-offset-10">
-    <form action="/AdminUsers/Index">
-        <input type="submit" value="Cancel" class="btn btn-default"/>
-    </form>
+<div class="col-md-offset-2 col-md-10">
+    <div>
+        @Html.ActionLink("Cancel", "Index")
+    </div>
 </div>
+<br/>
+<hr/>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

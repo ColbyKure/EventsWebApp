@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="eaa9eb6a76ac4966a1081e51f0ec3234" Name="Diagram1">
+      <Diagram DiagramId="baeff10832a544189e20263331fc1e63" Name="Diagram1">
         <EntityTypeShape EntityType="SummitWorksEventManagerModel.Event" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="SummitWorksEventManagerModel.Order" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SummitWorksEventManagerModel.User" Width="1.5" PointX="6.375" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="SummitWorksEventManagerModel.Order" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SummitWorksEventManagerModel.User" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="SummitWorksEventManagerModel.EventFK" ManuallyRouted="false" />
         <AssociationConnector Association="SummitWorksEventManagerModel.UserFK" ManuallyRouted="false" />
       </Diagram>

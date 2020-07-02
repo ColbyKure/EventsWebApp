@@ -1,33 +1,21 @@
 ﻿@model SwEventManager.Models.Order
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create New Order";
 }
-
-<h2>Create</h2>
-
+<br/>
+<h2>Create New Order</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>Order</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-
     <div class="form-group">
-        <label class="control-label col-md-2">Event ID</label>
-        <div class="col-md-10">
-            @Html.DropDownList("EventID", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.EventID, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.PhoneNum, htmlAttributes: new { @class = "control-label col-md-2" })
+        <label class="control-label col-md-2">Phone Number</label>
         <div class="col-md-10">
             @Html.EditorFor(model => model.PhoneNum, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.PhoneNum, "", new { @class = "text-danger" })
@@ -35,7 +23,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.TotalAdult, htmlAttributes: new { @class = "control-label col-md-2" })
+        <label class="control-label col-md-2">Total Adult</label>
         <div class="col-md-10">
             @Html.EditorFor(model => model.TotalAdult, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.TotalAdult, "", new { @class = "text-danger" })
@@ -43,7 +31,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.TotalChild, htmlAttributes: new { @class = "control-label col-md-2" })
+        <label class="control-label col-md-2">Total Child</label>
         <div class="col-md-10">
             @Html.EditorFor(model => model.TotalChild, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.TotalChild, "", new { @class = "text-danger" })
@@ -60,9 +48,11 @@
 </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="col-md-offset-2 col-md-10">
+    @Html.ActionLink("Back to List", "../UserEvents/Index")
 </div>
+<br/>
+<hr/>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

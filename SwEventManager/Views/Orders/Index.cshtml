@@ -1,85 +1,55 @@
 ﻿@model IEnumerable<SwEventManager.Models.Order>
 
 @{
-    ViewBag.Title = "Orders";
+    ViewBag.Title = "Orders List";
 }
-
-<h2>Upcoming Events</h2>
+<br />
+@if (Session["IsAdmin"].ToString().Equals("True"))
+{
+    <h2>All Orders Made</h2>
+}
+else
+{
+    <h2>Your Orders Made</h2>
+}
+<hr />
+<br />
 
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.User.Firstname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User.Lastname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNum)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.TotalAdult)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalChild)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.totalPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Event.EventName)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-
-        <th></th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Total Adult</th>
+        <th>Total Child</th>
+        <th>Total Price</th>
+        <th>Order Date</th>
+        <th>Event Name</th>
+        <th>Location</th>
+        <th>Confirmed</th>
+        <th>Actions</th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.User.Firstname)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.User.Lastname)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.PhoneNum)
-    </td>
-
-    <td>
-        @Html.DisplayFor(modelItem => item.TotalAdult)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TotalChild)
-    </td>
-
-    <td>
-        @Html.DisplayFor(modelItem => item.totalPrice)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.OrderDate)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Event.EventName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Location)
-    </td>
-
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
-    </td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.User.Firstname)</td>
+            <td>@Html.DisplayFor(modelItem => item.User.Lastname)</td>
+            <td>@Html.DisplayFor(modelItem => item.PhoneNum)</td>
+            <td>@Html.DisplayFor(modelItem => item.TotalAdult)</td>
+            <td>@Html.DisplayFor(modelItem => item.TotalChild)</td>
+            <td>@Html.DisplayFor(modelItem => item.totalPrice)</td>
+            <td>@Html.DisplayFor(modelItem => item.OrderDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.Event.EventName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Location)</td>
+            <td>@Html.DisplayFor(modelItem => item.confirmed)</td>
+            <td>
+                @Html.ActionLink("Confirm", "ConfirmOrder", new { id = item.OrderID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
+            </td>
+        </tr>
+    }
 
 </table>
+<br />
+<hr />
